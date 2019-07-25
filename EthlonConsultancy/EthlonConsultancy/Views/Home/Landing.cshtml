@@ -1,0 +1,618 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ethlon Consultancy</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="icon">
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="/Home/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="/Home/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/Home/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/Home/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/Home/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/Home/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Main Stylesheet File -->
+    <link href="/Home/css/style.css?123456789" rel="stylesheet">
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link href="~/Home/css/landing.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!--==========================
+      Header
+    ============================-->
+    <header id="header">
+        <div class="container-fluid">
+
+            <div id="logo" class="pull-left">
+                <img src="~/Admin/assets/images/ethlon-08.png" alt="Ethlon Consultancy" height="80" width="200" style="margin-top:-20px;"/>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="/Home/#intro"><img src="/Home/img/logo.png" alt="" title="" /></a>-->
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a href="#intro">Home</a></li>
+                    <li><a href="#about">Get Started</a></li>
+                    <li><a href="#team">Advice</a></li>
+                    <li><a href="#clients">Our Employers</a></li>
+                    <li><a href="#testimonials">Clients</a></li>
+                    <li class="menu-has-children">
+                        <a href="">Login</a>
+                        <ul>
+                            <li><a href="@Url.Action("AdminLogin", "Accounts")">Admin Login</a></li>
+                            <li><a href="@Url.Action("UsersLogin", "Accounts")">Partners Login</a></li>
+                            <li><a href="@Url.Action("OrganizationsLogin", "Accounts")">Organizations Login</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contact">Contact</a></li>
+                   
+                    
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+    <!--==========================
+      Intro Section
+    ============================-->
+
+    <section id="intro">
+        <div class="container-fluid">
+            <div class="row innerintro" style="align-items:center;">
+                <div class="col-md-1"></div>
+                <div class="col-md-6">
+                    <h4 style="color:white;font-size:30px;text-align:left;">WELCOME TO</h4>
+                    <h1 style="color:white;font-size:50px;text-align:left;">ETHLON CONSULTANCY</h1>
+                    <p style="text-align:justify;">
+                     Accounting, Managment and Taxation Consultancy Services.<br />
+                    Pakistan's 1st exclusive job & Training Portal For Qualified Accountants.</p>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div class="form" style="background-color:white;padding:20px;height:350px;">
+                        <h4 class="text-center text-uppercase" style="color:#d11e46;">Job seeker Signin</h4>
+                        @using (Html.BeginForm("ApplicantsLogin","Home",FormMethod.Post,new { @class=""}))
+                        {
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <input type="email" name="email" class="form-control" id="name" placeholder="Your Email" required>
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="password" class="form-control" name="password" id="password" placeholder="Your Password" required>
+                                </div>
+                                <div class="form-group col-md-12"><input type="submit" class="btn btn-block" value="Login" style="background-color:#d11e46;color:white;border-radius:0px;" /></div>
+    
+                            </div>
+                          
+                       
+                        }
+                        <div class="row">
+                            <p style="color:black;font-size:14px;margin-top:20px;text-align:center;">Not a member ? <a href="@Url.Action("ApplicantsSignup","Accounts")" style="color:blue;font-size:14px;">Register Now</a></p>
+                            <p style="text-align:center;margin-top:-19px;"><a href="@Url.Action("Forgotpassword","Accounts")" style="color:blue;font-size:13px;">forgot password?</a></p>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <main id="main">
+        <section id="about">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>OUR SERVICES</h3>
+                </header>
+
+                <div class="row about-cols">
+
+                    <div class="col-md-3 wow fadeInUp">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="/Home/img/about-mission.jpg" alt="" class="img-fluid">
+                                <div class="icon"><img src="~/Home/img/icon1small.jpeg" alt="Alternate Text" /></div>
+                            </div>
+                            <h2 class="title text-uppercase"><a>Recruitment Database</a></h2>
+                            @*<h5 class="title text-center"><a href="">STEP 1</a></h5>*@
+                            <p class="text-center">
+                                Ethlon Consultancy is known for providing database of highly skilled Accounting professionals. Whether you are looking for Finance trainee or internee who can start right away or a qualified accountant to join your team, our database offer you a range of options.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 wow fadeInUp">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="/Home/img/about-plan.jpg" alt="" class="img-fluid">
+                                <div class="icon"><img src="~/Home/img/icon3small.jpeg" alt="Alternate Text" /></div>
+                            </div>
+                            <h2 class="title text-uppercase"><a>Taxation</a></h2>
+                            @*<h5 class="title text-center"><a href="#">STEP 2</a></h5>*@
+                            <p class="text-center">
+                                Ethlon Consultancy provides a broad-ranging corporate and individual tax advisory service. Our team supports you to reduce overall tax of your business whilst increasing business efficiency & ensuring tax compliance.                        </div>
+                    </div>
+
+                    <div class="col-md-3 wow fadeInUp">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="/Home/img/about-vision.jpg" alt="" class="img-fluid">
+                                <div class="icon">
+                                    <img src="~/Home/img/icon4small.jpeg" alt="Alternate Text" />
+                                </div>
+                            </div>
+                            <h2 class="title text-uppercase"><a>Accounting & Administration</a></h2>
+                            @*<h5 class="title text-center"><a href="#">STEP 3</a></h5>*@
+                            <p class="text-center">
+                                Our Outsourcing department provides accounting and administration solutions for both companies in Pakistan and abroad. Our team provides you with cheaper alternative solutions.
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 wow fadeInUp">
+                        <div class="about-col">
+                            <div class="img">
+                                <img src="/Home/img/about-mission.jpg" alt="" class="img-fluid">
+                                <div class="icon"><img src="~/Home/img/icon2small.jpeg" alt="Alternate Text" /></div>
+                            </div>
+                            <h2 class="title text-uppercase"><a>Consultancy Services</a></h2>
+                            @*<h5 class="title text-center"><a href="#">STEP 4</a></h5>*@
+                            <p class="text-center">
+                                Our Finance team works with the CFO to ensure the finance strategy aligns with the wider business, and to optimize costs. We help our clients to drive value from technology.                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section><!-- #about -->
+
+        <section class="container">
+            <div class="section-header wow fadeInUp">
+                <h3>LATEST JOBS</h3>
+            </div>
+            <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
+                <div class="carousel-inner v-2" role="listbox">
+                    @{var count=0;}
+                @foreach (var item in ViewBag.postjobs)
+                {
+                    count++;
+                    if (count == 1)
+                    {
+                        <div class="carousel-item active">
+                            <div class="col-12 col-md-4">
+                                <div class="card mb-2">
+                                    <img class="card-img-top" src="~/Landing/job.jpg"
+                                         alt="Card image cap">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-weight-bold">New Job</h4>
+                                        <p class="card-text">
+                                            <h6 class="small text-wide p-b-2" style="color:black;">Organization Name: @item.OrgName</h6>
+                                        <p></p>
+                                        <h6 class="small text-wide p-b-2" style="color:black;">Job Title: @item.JobTitle</h6><p></p>
+                                        <h6 class="small text-wide p-b-2" style="color:black;">Qualification Requirements: @item.QualRequirements</h6><p></p>
+                                        <h6 class="small text-wide p-b-2" style="color:black;">Deadline: @item.Deadline.ToString("yyyy-MM-dd")</h6><p>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                            <div class="carousel-item">
+                                <div class="col-12 col-md-4">
+                                    <div class="card mb-2">
+                                        <img class="card-img-top" src="~/Landing/job.jpg"
+                                             alt="Card image cap">
+                                        <div class="card-body">
+                                            <h4 class="card-title font-weight-bold">New Job</h4>
+                                            <p class="card-text">
+                                                <h6 class="small text-wide p-b-2" style="color:black;">Organization Name: @item.OrgName</h6>
+                                            <p></p>
+                                            <h6 class="small text-wide p-b-2" style="color:black;">Job Title: @item.JobTitle</h6><p></p>
+                                            <h6 class="small text-wide p-b-2" style="color:black;">Qualification Requirements: @item.QualRequirements</h6><p></p>
+                                            <h6 class="small text-wide p-b-2" style="color:black;">Deadline: @item.Deadline.ToString("yyyy-MM-dd")</h6><p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                </div>
+        </section>
+        <section id="team">
+            <div class="container">
+                <div class="section-header wow fadeInUp">
+                    <h3>LATEST ADVICE</h3>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <div class="member">
+                            <img src="~/Home/img/1st.jpg" class="img-fluid" alt="">
+                            <div>
+                                <div>
+                                    <h4>Future of finance</h4>
+                                    <span>Five factors changing FP&A</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <a href="https://www.michaelpage.com.sg/">
+                            <div class="member">
+                                <img src="~/Home/img/2nd.jpg" class="img-fluid" alt="">
+                                <div>
+                                    <div>
+                                        <h4>What traits will define</h4>
+                                        <span>the successfull CFOs og tomorrow</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <a href="https://www.michaelpage.com.sg/">
+                            <div class="member">
+                                <img src="~/Home/img/3rd.jpg" class="img-fluid" alt="">
+                                <div>
+                                    <div>
+                                        <h4>Common Interview</h4>
+                                        <span> Questions</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            </a>
+                   </div>
+                </div>
+                    <div class="row">
+                    <div class="col-lg-4 col-md-6 wow fadeInUp">
+                        <a href="https://www.michaelpage.com.sg/">
+                        <div class="member">
+                            <img src="~/Home/img/4th.jpg" class="img-fluid" alt="">
+                            <div>
+                                <div>
+                                    <h4>Tell me about yourself</h4>
+                                    <span>How answer one of the most dreaded</span>
+
+                                </div>
+                            </div>
+                        </div>
+                            </a>
+                    </div>
+
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <a href="https://www.michaelpage.com.sg/">
+                            <div class="member">
+                                <img src="~/Home/img/5th.jpg" class="img-fluid" alt="">
+                                <div>
+                                    <div>
+                                        <h4>All the resume</h4>
+                                        <span> tips and tricks you need</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                                </a>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 wow fadeInUp">
+                            <a href="https://www.michaelpage.com.sg/">
+                                <div class="member">
+                                    <img src="~/Home/img/6th.png" class="img-fluid" alt="">
+                                    <div>
+                                        <div>
+                                            <h4>Paternity leave in Singapore</h4>
+                                            <span> What you can expect</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                </div>
+
+            </div>
+        </section>
+        <div class="container">
+
+            <header class="section-header">
+                <h3>Our Employee</h3>
+            </header>
+        </div>
+            <section id="clients" class="wow fadeInUp customer-logos slider" style="visibility: visible; animation-name: fadeInUp;">
+               
+                    @foreach (var item in ViewBag.logos)
+                    {
+                        <div class="slide"><img src="~/Logos/@item.Image"></div>
+                    }
+</section>
+        @*<section id="clients" class="wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>Our Clients</h3>
+        </header>
+
+        <div class="owl-carousel clients-carousel owl-loaded owl-drag">
+        <div class="owl-stage-outer">
+            <div class="owl-stage" style="transform: translate3d(-1480px, 0px, 0px); transition: all 0.25s ease 0s; width: 3700px;">
+            @foreach (var item in ViewBag.logos)
+            {
+            <div class="owl-item cloned" style="width: 185px;"><img src="~/Logos/@item.Image" alt="" style="margin-left:10px;width:150px;"></div>
+            }
+            </div>
+       </div>
+       </div>
+
+      </div>
+    </section>*@<!-- #clients -->
+        <!--==========================
+          Clients Section
+        ============================-->
+        <section id="testimonials" class="section-bg wow fadeInUp">
+            <div class="container">
+
+                <header class="section-header">
+                    <h3>WHAT OUR CLIENTS SAY</h3>
+                </header>
+
+                <div class="owl-carousel testimonials-carousel">
+
+                    <div class="testimonial-item">
+
+                        <h3>Quote</h3>
+                        <h4>Director - Intermarket Securities</h4>
+                        <p>
+                            <img src="/Home/img/quote-sign-left.png" class="quote-sign-left" alt="">
+                            Their entire partnership will work for you to get the right candidate in front of you & i think their incentive structures have been such that they basically all drink from the same well... It is a very important value to me                            <img src="/Home/img/quote-sign-right.png" class="quote-sign-right" alt="">
+                        </p>
+                    </div>
+
+                    
+
+                </div>
+
+            </div>
+        </section><!-- #testimonials -->
+        <!--==========================
+          Team Section
+        ============================-->
+        <!-- #team -->
+        <!--==========================
+          Contact Section
+        ============================-->
+        <section id="contact" class="section-bg wow fadeInUp">
+            <div class="container">
+
+                <div class="section-header">
+                    <h3>Contact Us</h3>
+                </div>
+
+                <div class="row contact-info">
+
+                    <div class="col-md-6">
+                        <div class="contact-address">
+                            <i class="ion-ios-location-outline" style="color:orange;"></i>
+                            <h3>Address</h3>
+                            <address>Suite # 203، Wind Song Palace, Shahrah-e-Faisal Rd,
+                             KCHSU Block 7/8 Jinnah Housing Society PECHS, Karachi,
+                            </address>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="col-md-6">
+                        <div class="contact-email">
+                            <i class="ion-ios-email-outline" style="color:orange;"></i>
+                            <h3>Email</h3>
+                            <p><a href="mailto:consultancy@ethlongroup.com">consultancy@ethlongroup.com</a></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                
+
+            </div>
+        </section><!-- #contact -->
+
+    </main>
+
+    <!--==========================
+      Footer
+    ============================-->
+    <footer id="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-6 footer-info">
+                        <h3>Ethlon Consultancy</h3>
+                        <p>Ethlon Consultancy is an independent global Human Resource and Business advisory firm dedicated to helping organizations manage change, hiring potential employees.</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-links">
+                        <h4>Useful Links</h4>
+                        <ul>
+                            <li class="menu-active"><i class="ion-ios-arrow-right"></i> <a href="#intro">Home</a></li>
+                            <li><a href="#about"><i class="ion-ios-arrow-right"></i> Get Started</a></li>
+                            <li><a href="#team"><i class="ion-ios-arrow-right"></i> Advice</a></li>
+                            <li><a href="#clients"><i class="ion-ios-arrow-right"></i> Our Employers</a></li>
+                            <li><a href="#testimonials"><i class="ion-ios-arrow-right"></i> Clients</a></li>
+                            <li><a href="#contact"><i class="ion-ios-arrow-right"></i> Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 footer-contact">
+                        <h4>Contact Us</h4>
+                        <p>
+                            Wind Song Palace, Shahrah-e-Faisal Rd, KCHSU Block 7/8 Jinnah Housing Society PECHS, Karachi, <br>
+                            
+                            <strong>Email:</strong> consultancy@ethlongroup.com<br>
+                        </p>
+
+                        <div class="social-links">
+                            <a href="https://twitter.com/EthlonC" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.facebook.com/Ethlon-Consultancy-2105046659741955/?modal=admin_todo_tour" target="_blank" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/ethlonconsultancy/" class="instagram"><i class="fa fa-instagram"></i></a>
+                            @*<a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+                            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>*@
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="copyright">
+                &copy; Copyright <strong>Ethlon Consultancy</strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!--
+                  All the links in the footer should remain intact.
+                  You can delete the links only if you purchased the pro version.
+                  Licensing information: https://bootstrapmade.com/license/
+                  Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=BizPage
+                -->
+                Designed & Developed by <a href="https://itechnocode.com/">Itechnocode</a>
+            </div>
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="/Home/#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
+    <!-- JavaScript Libraries -->
+    <script src="/Home/lib/jquery/jquery.min.js"></script>
+    <script src="/Home/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/Home/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/Home/lib/easing/easing.min.js"></script>
+    <script src="/Home/lib/superfish/hoverIntent.js"></script>
+    <script src="/Home/lib/superfish/superfish.min.js"></script>
+    <script src="/Home/lib/wow/wow.min.js"></script>
+    <script src="/Home/lib/waypoints/waypoints.min.js"></script>
+    <script src="/Home/lib/counterup/counterup.min.js"></script>
+    <script src="/Home/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="/Home/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="/Home/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="/Home/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <script src="~/scripts/slick.js"></script>
+    <!-- Contact Form JavaScript File -->
+    <script src="/Home/contactform/contactform.js"></script>
+    <script src="~/scripts/toastr.min.js"></script>
+    <!-- Template Main Javascript File -->
+    <script src="/Home/js/main.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            // manual carousel controls
+            $('.next').click(function () { $('.carousel').carousel('next'); return false; });
+            $('.prev').click(function () { $('.carousel').carousel('prev'); return false; });
+
+        })(jQuery);
+
+        $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+            var next = $(this).next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+
+            for (var i = 0; i < 4; i++) {
+                next = next.next();
+                if (!next.length) {
+                    next = $(this).siblings(':first');
+                }
+                next.children(':first-child').clone().appendTo($(this));
+            }
+        });
+
+
+        $(function () {
+            var a = '@TempData["message"]';
+            if (a != '')
+                toastr.error("", a);
+            //alert("ab" + a)
+
+        })
+
+
+        $(function () {
+            var a = '@TempData["pendingmessage"]';
+            if (a != '')
+                toastr.warning("", a);
+            //alert("ab" + a)
+
+        })
+
+        $(function () {
+            var a = '@TempData["deniedmessage"]';
+            if (a != '')
+                toastr.error("", a);
+            //alert("ab" + a)
+
+        })
+
+        $(document).ready(function () {
+            $('.customer-logos').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 1500,
+                arrows: false,
+                dots: false,
+                pauseOnHover: false,
+                responsive: [{
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                }, {
+                    breakpoint: 520,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                }]
+            });
+        });
+    </script>
+
+</body>
+</html>

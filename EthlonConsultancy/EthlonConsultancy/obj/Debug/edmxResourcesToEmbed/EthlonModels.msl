@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EthlondbModelStoreContainer" CdmEntityContainer="EthlonEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="EthlondbModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="AdminTypeId" ColumnName="AdminTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminTypes">
+      <EntityTypeMapping TypeName="EthlondbModel.AdminType">
+        <MappingFragment StoreEntitySet="AdminTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizations">
+      <EntityTypeMapping TypeName="EthlondbModel.Organization">
+        <MappingFragment StoreEntitySet="Organizations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CoordinatorName" ColumnName="CoordinatorName" />
+          <ScalarProperty Name="CoordinatorPhone" ColumnName="CoordinatorPhone" />
+          <ScalarProperty Name="IndustryNuture" ColumnName="IndustryNuture" />
+          <ScalarProperty Name="Wallet" ColumnName="Wallet" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Organizationscvs">
+      <EntityTypeMapping TypeName="EthlondbModel.Organizationscv">
+        <MappingFragment StoreEntitySet="Organizationscv">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="OrgCVUpload" ColumnName="OrgCVUpload" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="QName" ColumnName="QName" />
+          <ScalarProperty Name="QStatus" ColumnName="QStatus" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="EducationBoard" ColumnName="EducationBoard" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="MajorSubject" ColumnName="MajorSubject" />
+          <ScalarProperty Name="OtherSubject" ColumnName="OtherSubject" />
+          <ScalarProperty Name="ExpStatus" ColumnName="ExpStatus" />
+          <ScalarProperty Name="NOYMExperience" ColumnName="NOYMExperience" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="EthlondbModel.Partner">
+        <MappingFragment StoreEntitySet="Partners">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partnerscvs">
+      <EntityTypeMapping TypeName="EthlondbModel.Partnerscv">
+        <MappingFragment StoreEntitySet="Partnerscv">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PrtCVUpload" ColumnName="PrtCVUpload" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="QName" ColumnName="QName" />
+          <ScalarProperty Name="QStatus" ColumnName="QStatus" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="GStatus" ColumnName="GStatus" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="TotalExp" ColumnName="TotalExp" />
+          <ScalarProperty Name="Experties" ColumnName="Experties" />
+          <ScalarProperty Name="ExpCity" ColumnName="ExpCity" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="LeaveDateOPW" ColumnName="LeaveDateOPW" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PostJobs">
+      <EntityTypeMapping TypeName="EthlondbModel.PostJob">
+        <MappingFragment StoreEntitySet="PostJobs">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+          <ScalarProperty Name="CurrentDate" ColumnName="CurrentDate" />
+          <ScalarProperty Name="Deadline" ColumnName="Deadline" />
+          <ScalarProperty Name="QualRequirements" ColumnName="QualRequirements" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Statuses">
+      <EntityTypeMapping TypeName="EthlondbModel.Status">
+        <MappingFragment StoreEntitySet="Statuses">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="EthlondbModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationGpaViews">
+      <EntityTypeMapping TypeName="EthlondbModel.OrganizationGpaView">
+        <MappingFragment StoreEntitySet="OrganizationGpaView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="OrgCVUpload" ColumnName="OrgCVUpload" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="MajorSubject" ColumnName="MajorSubject" />
+          <ScalarProperty Name="OtherSubject" ColumnName="OtherSubject" />
+          <ScalarProperty Name="ExpStatus" ColumnName="ExpStatus" />
+          <ScalarProperty Name="NOYMExperience" ColumnName="NOYMExperience" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="EducationBoard" ColumnName="EducationBoard" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrganizationQualViews">
+      <EntityTypeMapping TypeName="EthlondbModel.OrganizationQualView">
+        <MappingFragment StoreEntitySet="OrganizationQualView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="OrgCVUpload" ColumnName="OrgCVUpload" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="QName" ColumnName="QName" />
+          <ScalarProperty Name="QStatus" ColumnName="QStatus" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="ExpStatus" ColumnName="ExpStatus" />
+          <ScalarProperty Name="NOYMExperience" ColumnName="NOYMExperience" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="EducationBoard" ColumnName="EducationBoard" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnersGpaViews">
+      <EntityTypeMapping TypeName="EthlondbModel.PartnersGpaView">
+        <MappingFragment StoreEntitySet="PartnersGpaView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PrtCVUpload" ColumnName="PrtCVUpload" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="GStatus" ColumnName="GStatus" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="ExpCity" ColumnName="ExpCity" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="LeaveDateOPW" ColumnName="LeaveDateOPW" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="TotalExp" ColumnName="TotalExp" />
+          <ScalarProperty Name="Experties" ColumnName="Experties" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnersQualViews">
+      <EntityTypeMapping TypeName="EthlondbModel.PartnersQualView">
+        <MappingFragment StoreEntitySet="PartnersQualView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PrtCVUpload" ColumnName="PrtCVUpload" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="QName" ColumnName="QName" />
+          <ScalarProperty Name="QStatus" ColumnName="QStatus" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="ExpCity" ColumnName="ExpCity" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="LeaveDateOPW" ColumnName="LeaveDateOPW" />
+          <ScalarProperty Name="Experties" ColumnName="Experties" />
+          <ScalarProperty Name="TotalExp" ColumnName="TotalExp" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applicantscvs">
+      <EntityTypeMapping TypeName="EthlondbModel.Applicantscv">
+        <MappingFragment StoreEntitySet="Applicantscv">
+          <ScalarProperty Name="Applicantid" ColumnName="Applicantid" />
+          <ScalarProperty Name="UploadCV" ColumnName="UploadCV" />
+          <ScalarProperty Name="Agree" ColumnName="Agree" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="NOYExperience" ColumnName="NOYExperience" />
+          <ScalarProperty Name="ExpStatus" ColumnName="ExpStatus" />
+          <ScalarProperty Name="Achivements" ColumnName="Achivements" />
+          <ScalarProperty Name="Extracuri" ColumnName="Extracuri" />
+          <ScalarProperty Name="OtherSubjects" ColumnName="OtherSubjects" />
+          <ScalarProperty Name="MajorSubjects" ColumnName="MajorSubjects" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="Qualstatus" ColumnName="Qualstatus" />
+          <ScalarProperty Name="Qualname" ColumnName="Qualname" />
+          <ScalarProperty Name="AdvAcadQual" ColumnName="AdvAcadQual" />
+          <ScalarProperty Name="AcadQual" ColumnName="AcadQual" />
+          <ScalarProperty Name="Collegename" ColumnName="Collegename" />
+          <ScalarProperty Name="Schoolname" ColumnName="Schoolname" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicantBBAViews">
+      <EntityTypeMapping TypeName="EthlondbModel.ApplicantBBAView">
+        <MappingFragment StoreEntitySet="ApplicantBBAView">
+          <ScalarProperty Name="Applicantid" ColumnName="Applicantid" />
+          <ScalarProperty Name="UploadCV" ColumnName="UploadCV" />
+          <ScalarProperty Name="Agree" ColumnName="Agree" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="NOYExperience" ColumnName="NOYExperience" />
+          <ScalarProperty Name="ExpStatus" ColumnName="ExpStatus" />
+          <ScalarProperty Name="Achivements" ColumnName="Achivements" />
+          <ScalarProperty Name="Extracuri" ColumnName="Extracuri" />
+          <ScalarProperty Name="OtherSubjects" ColumnName="OtherSubjects" />
+          <ScalarProperty Name="MajorSubjects" ColumnName="MajorSubjects" />
+          <ScalarProperty Name="University" ColumnName="University" />
+          <ScalarProperty Name="GPA" ColumnName="GPA" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="AdvAcadQual" ColumnName="AdvAcadQual" />
+          <ScalarProperty Name="AcadQual" ColumnName="AcadQual" />
+          <ScalarProperty Name="Collegename" ColumnName="Collegename" />
+          <ScalarProperty Name="Schoolname" ColumnName="Schoolname" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicantCAViews">
+      <EntityTypeMapping TypeName="EthlondbModel.ApplicantCAView">
+        <MappingFragment StoreEntitySet="ApplicantCAView">
+          <ScalarProperty Name="Applicantid" ColumnName="Applicantid" />
+          <ScalarProperty Name="UploadCV" ColumnName="UploadCV" />
+          <ScalarProperty Name="Agree" ColumnName="Agree" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="NOYExperience" ColumnName="NOYExperience" />
+          <ScalarProperty Name="ExpStatus" ColumnName="ExpStatus" />
+          <ScalarProperty Name="Achivements" ColumnName="Achivements" />
+          <ScalarProperty Name="Extracuri" ColumnName="Extracuri" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="Qualstatus" ColumnName="Qualstatus" />
+          <ScalarProperty Name="Qualname" ColumnName="Qualname" />
+          <ScalarProperty Name="AdvAcadQual" ColumnName="AdvAcadQual" />
+          <ScalarProperty Name="AcadQual" ColumnName="AcadQual" />
+          <ScalarProperty Name="Collegename" ColumnName="Collegename" />
+          <ScalarProperty Name="Schoolname" ColumnName="Schoolname" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Contactno" ColumnName="Contactno" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmployeLogos">
+      <EntityTypeMapping TypeName="EthlondbModel.EmployeLogo">
+        <MappingFragment StoreEntitySet="EmployeLogos">
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicantpartnerACCAViews">
+      <EntityTypeMapping TypeName="EthlondbModel.ApplicantpartnerACCAView">
+        <MappingFragment StoreEntitySet="ApplicantpartnerACCAView">
+          <ScalarProperty Name="RelevantIndustry" ColumnName="RelevantIndustry" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LeaveDateOPW" ColumnName="LeaveDateOPW" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="ExpCity" ColumnName="ExpCity" />
+          <ScalarProperty Name="Experties" ColumnName="Experties" />
+          <ScalarProperty Name="TotalExp" ColumnName="TotalExp" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="QStatus" ColumnName="QStatus" />
+          <ScalarProperty Name="QName" ColumnName="QName" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="AppCVUpload" ColumnName="AppCVUpload" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ApplicantpartnerBBAViews">
+      <EntityTypeMapping TypeName="EthlondbModel.ApplicantpartnerBBAView">
+        <MappingFragment StoreEntitySet="ApplicantpartnerBBAView">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="RelevantIndustry" ColumnName="RelevantIndustry" />
+          <ScalarProperty Name="LeaveDateOPW" ColumnName="LeaveDateOPW" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="ExpCity" ColumnName="ExpCity" />
+          <ScalarProperty Name="Experties" ColumnName="Experties" />
+          <ScalarProperty Name="TotalExp" ColumnName="TotalExp" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="GStatus" ColumnName="GStatus" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="AppCVUpload" ColumnName="AppCVUpload" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applicantpartnerscvs">
+      <EntityTypeMapping TypeName="EthlondbModel.Applicantpartnerscv">
+        <MappingFragment StoreEntitySet="Applicantpartnerscvs">
+          <ScalarProperty Name="Applicantid" ColumnName="Applicantid" />
+          <ScalarProperty Name="LeaveDateOPW" ColumnName="LeaveDateOPW" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="RelevantIndustry" ColumnName="RelevantIndustry" />
+          <ScalarProperty Name="ExpCity" ColumnName="ExpCity" />
+          <ScalarProperty Name="Experties" ColumnName="Experties" />
+          <ScalarProperty Name="TotalExp" ColumnName="TotalExp" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="GStatus" ColumnName="GStatus" />
+          <ScalarProperty Name="GName" ColumnName="GName" />
+          <ScalarProperty Name="NOPL" ColumnName="NOPL" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="DOQ" ColumnName="DOQ" />
+          <ScalarProperty Name="QStatus" ColumnName="QStatus" />
+          <ScalarProperty Name="QName" ColumnName="QName" />
+          <ScalarProperty Name="ReferBy" ColumnName="ReferBy" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="AppCVUpload" ColumnName="AppCVUpload" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="EthlondbModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicants">
+          <ScalarProperty Name="Statusid" ColumnName="Statusid" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+          <ScalarProperty Name="UniversityName" ColumnName="UniversityName" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

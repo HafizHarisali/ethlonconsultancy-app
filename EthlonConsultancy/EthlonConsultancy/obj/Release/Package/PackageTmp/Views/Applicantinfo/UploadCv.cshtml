@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "UploadCv";
+    Layout = "~/Views/Shared/Front.cshtml";
+}
+
+
+<h2 style="text-align:center;">UPLOAD YOUR CV</h2>
+
+@using (Html.BeginForm("UploadCv", "Applicantinfo", FormMethod.Post, new { enctype = "multipart/form-data", @class = "uploader" }))
+{
+<div class="row">
+        <div class="col-md-12 mt-lg">
+            <input type="file" name="file" required>
+            <p>Drag your files here or click in this area.</p>
+            <input type="submit" class="btn uploadbtn" value="Upload">
+        </div>
+    </div>
+
+}
+

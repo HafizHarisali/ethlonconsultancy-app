@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "AddEmployeLogo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Employers Logo</h2>
+<div class="row mt-lg">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="panel">
+            <div class="panel-body" style="padding:40px;">
+                @using (Html.BeginForm("Create", "EmployeLogoes", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken();
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="file" name="file" id="imgInp" />
+                            <input type="submit" value="Add" class="btn btn-success mt-lg" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <img src="#" alt="" id="imagepreview" height="100" width="100" />
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+<script src="~/scripts/jquery-3.3.1.min.js"></script>
+<script src="~/scripts/toastr.min.js"></script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#imagepreview').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#imgInp").change(function () {
+        readURL(this);
+    });
+
+    $(function () {
+        var a = '@TempData["successmessage"]';
+        if (a != '')
+            toastr.success("", a);
+        //alert("ab" + a)
+
+    })
+</script>

@@ -1,0 +1,143 @@
+﻿@{
+    Layout = "~/Views/Shared/Front.cshtml";
+}
+
+<section class="body">
+
+    <!-- start: header -->
+    <!-- end: header -->
+    <!-- start: sidebar -->
+    <!-- end: sidebar -->
+
+    <section role="main" class="">
+
+
+        <!-- start: page -->
+
+
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="/Admin/#" class="fa fa-caret-down"></a>
+
+                </div>
+
+                <h3 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color:black;">Organizations CA/ACCA CVs</h3>
+            </header>
+            <div class="panel-body">
+                <table class="js-dynamitable table table-bordered table-striped mb-none" id="datatable-tabletools">
+
+                    <!-- table heading -->
+                    <thead>
+
+                        <tr>
+                            <th>Serial #</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Date Of Birth</th>
+                            <th>Qualification</th>
+                            <th>Qualification Status</th>
+                            <th>Education Board</th>
+                            <th>Date Of Qualification / No. Of Papers Left</th>
+                            <th>Experience</th>
+                            <th>Experience Year</th>
+                            <th>Organization Name</th>
+                            <th>CV</th>
+
+                        </tr>
+                        <tr id="sorting">
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th><input class="js-filter  form-control" type="date" value=""></th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th>
+                                <select class="js-filter  form-control">
+                                    <option></option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th>
+                                <select class="js-filter  form-control">
+                                    <option></option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+
+                    <!-- table body -->
+                    <tbody>
+                        @{
+                            var count1 = 0;
+
+                            foreach (var item in ViewBag.getcacv)
+                            {
+                                if (item.QName != null && item.QStatus != null)
+                                {
+                                    count1 = count1 + 1;
+                                    <tr class="odd gradeX">
+                                        <td>@count1</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.DOB</td>
+                                        <td>@item.QName</td>
+                                        <td>@item.QStatus</td>
+                                        <td>@item.EducationBoard</td>
+                                        @if (item.QStatus == "Yes")
+                                        {
+                                            <td>@item.DOQ</td>
+                                        }
+                                        else
+                                        {
+                                            <td>@item.NOPL</td>
+                                        }
+                                        <td>@item.ExpStatus</td>
+                                        <td>@item.NOYMExperience</td>
+                                        <td>@item.OrgName</td>
+                                        <td><a class="btn btn-default" title="Download CV" href="@Url.Action("DownloadFile", "Orginfo", new { item.Id })"><i class="fa fa-download"></i></a></td>
+                                    </tr>
+                                }
+
+                            }
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+            <!-- /.panel-body -->
+        </section>
+    </section>
+</section>
+
+
+
+<script src="~/scripts/jquery-3.3.1.min.js"></script>
+<!-- dynamitable -->
+<script src="~/scripts/dynamitable.jquery.min.js"></script>
+<script type="text/javascript">
+
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+</script>
+

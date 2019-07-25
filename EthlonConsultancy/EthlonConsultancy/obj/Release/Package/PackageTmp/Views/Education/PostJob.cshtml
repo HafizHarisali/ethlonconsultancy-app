@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "PostAds";
+    Layout = "~/Views/Shared/Front.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <h2 class="text-center">PostAds</h2>
+        @using (Html.BeginForm("PostJob","Education",FormMethod.Post))
+        {
+        <form style="margin-top:30px;">
+            <div class="form-group">
+                <label>Organization Name</label>
+                <input type="text" name="orgname" value="@Session["Name"]" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label>Job title</label>
+                <input type="text" name="jobtitle" value="" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label>Deadline</label>
+                <input type="date" name="deadline" value="" class="form-control" required/>
+            </div>
+            <div class="form-group">
+                <label>Qualification Requirements</label>
+                <textarea name="qualrequirements" rows="8" class="form-control" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-block" style="background-color:#f67e48;color:white;">Post</button>
+            </div>
+        </form>
+        }
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<script>
+    var today = new Date().toISOString().split('T')[0];
+    document.getElementsByName("deadline")[0].setAttribute('min', today);
+</script>
+<script src="~/scripts/jquery-3.3.1.min.js"></script>
+<script src="~/scripts/toastr.min.js"></script>
+<script>
+        $(function () {
+        var a = '@TempData["successmessage"]';
+        if (a != '')
+            toastr.success("", a);
+        //alert("ab" + a)
+        window.location = '#2249506';
+    })
+</script>

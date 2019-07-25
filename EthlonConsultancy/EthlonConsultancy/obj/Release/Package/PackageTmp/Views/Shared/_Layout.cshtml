@@ -1,0 +1,630 @@
+﻿
+<!doctype html>
+<html class="fixed">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>Dashboard | Ethlon-Consultancy</title>
+    <meta name="keywords" content="Ethlon Consultancy" />
+    <meta name="description" content="Ethlon Consultancy">
+    <meta name="author" content="">
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="icon">
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="apple-touch-icon">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="/Admin/http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/Admin/assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/select2/select2.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="/Admin/assets/vendor/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.custom.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/morris/morris.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/skins/default.css" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/theme-custom.css">
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <!-- Head Libs -->
+    <script src="/Admin/assets/vendor/modernizr/modernizr.js"></script>
+    <style>
+        .scrollbar
+{
+	margin-left: 30px;
+	float: left;
+	height: 300px;
+	width: 65px;
+	background: #F5F5F5;
+	overflow-y: scroll;
+	margin-bottom: 25px;
+}
+
+.force-overflow
+{
+	min-height: 200px;
+}
+
+#style-2::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 0px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#style-2::-webkit-scrollbar-thumb
+{
+	border-radius: 0px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #D62929;
+}
+
+.sidebar-left{
+    background-color:#d41e48;
+}
+
+.page-header{
+    background-color:#d41e48;
+}
+
+ul.nav-main li a{
+    color:white;
+}
+
+.sidebar-left .sidebar-header .sidebar-toggle{
+    background-color:transparent;
+}
+
+html.sidebar-left-collapsed.fixed .sidebar-left .nano{
+    background-color:#d41e48;
+}
+
+ table.dataTable thead tr {
+  background-color:#d41e48;
+  
+}
+
+  table.dataTable thead tr th{
+  font-size:12px;
+  color:white;
+}
+        html .pagination > li.active a{
+            background-color:#d41e48;
+        }
+
+        html .pagination:hover li.active a{
+            background-color:#d41e48;
+        }
+    </style>
+
+</head>
+<body>
+    <section class="body">
+
+        <!-- start: header -->
+        <header class="header">
+            <div class="logo-container">
+                <a href="@Url.Action("Index","Home")" class="logo">
+                    <img src="~/Admin/assets/images/ethlon-08.png" height="50" alt="Ethlon Consultancy" />
+                </a>
+                <div class="visible-xs toggle-sidebar-left" data-toggle-class="sidebar-left-opened" data-target="html" data-fire-event="sidebar-left-opened">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+
+            <!-- start: search & user box -->
+            <div class="header-right">
+
+                <form action="pages-search-results.html" class="search nav-form hidden">
+                    <div class="input-group input-search">
+                        <input type="text" class="form-control" name="q" id="q" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form>
+
+                <span class="separator"></span>
+
+                <ul class="notifications">
+                    
+                    <li>
+                        @{
+                            var db1 = new EthlonConsultancy.EthlonEntities();
+                            var orgnotifyno = db1.Organizations.Where(p => p.Status.Name == "Pending").LongCount();
+
+
+                        }
+                        <a href="/Admin/#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                            <i class="fa fa-bell-o" title="New Organizations"></i>
+                            <span class="badge">@orgnotifyno</span>
+                        </a>
+
+                        <div class="dropdown-menu notification-menu scrollbar" id="style-2">
+                            <div class="notification-title">
+                                <span class="pull-right label label-default">@orgnotifyno</span>
+                                Organizations
+                            </div>
+
+                            <div class="content force-overflow">
+                               
+                                <ul>
+                                    @{
+
+                                        var orgnotify = db1.Organizations.Where(r => r.Status.Name == "Pending").OrderByDescending(p => p.Id).ToList();
+                                    }
+                                    @foreach (var item in orgnotify)
+                                    {
+                                    <li>
+                                        <a href="@Url.Action("edit", "organizations", new { item.Id })" class="clearfix">
+                                            <div class="image">
+                                                <i class="fa fa-users bg-danger"></i>
+                                            </div>
+                                            <span class="title">@item.Name</span>
+                                            <span class="message">@item.Email</span>
+                                        </a>
+                                    </li>
+                                    }
+                                </ul>
+
+                                <hr />
+
+                                <div class="text-right">
+                                    <a href="@Url.Action("index", "organizations")" class="view-more">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        @{ 
+                            var db = new EthlonConsultancy.EthlonEntities();
+                            var notifyno = db.Partners.Where(p => p.Status.Name == "Pending").LongCount();
+
+
+                        }
+                        <a href="/Admin/#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                            <i class="fa fa-bell-o" title="New Partners"></i>
+                       
+                            <span class="badge">@notifyno</span>
+                         
+                        </a>
+
+                        <div class="dropdown-menu notification-menu scrollbar" id="style-2">
+                            <div class="notification-title">
+                                <span class="pull-right label label-default">@notifyno</span>
+                                Partners
+                            </div>
+
+                            <div class="content force-overflow">
+                                <ul>
+                                    @{ 
+
+                                        var prtnotify = db.Partners.Where(r => r.Status.Name == "Pending").OrderByDescending(p => p.Id).ToList();
+                                    }
+                                    @foreach (var item in prtnotify)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("edit", "partners", new { item.Id })" class="clearfix">
+                                                <div class="image">
+                                                    <i class="fa fa-user bg-danger"></i>
+                                                </div>
+                                                <span class="title">@item.Name</span>
+                                                <span class="message">@item.Email</span>
+                                            </a>
+                                        </li>
+                                    }
+                                    
+                                    
+                                </ul>
+
+                                <hr />
+
+                                <div class="text-right">
+                                    <a href="@Url.Action("index", "partners")" class="view-more">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        @{
+                            
+                            var appcount = db.Applicants.Where(p => p.Status.Name == "Pending").LongCount();
+
+
+                        }
+                        <a href="/Admin/#" class="dropdown-toggle notification-icon" data-toggle="dropdown">
+                            <i class="fa fa-bell-o" title="New Applicants"></i>
+
+                            <span class="badge">@appcount</span>
+
+                        </a>
+
+                        <div class="dropdown-menu notification-menu scrollbar" id="style-2">
+                            <div class="notification-title">
+                                <span class="pull-right label label-default">@appcount</span>
+                                Applicants
+                            </div>
+
+                            <div class="content force-overflow">
+                                <ul>
+                                    @{
+
+                                        var appnotify = db.Applicants.Where(r => r.Status.Name == "Pending").OrderByDescending(p => p.Id).ToList();
+                                    }
+                                    @foreach (var item in appnotify)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("edit", "applicants", new { item.Id })" class="clearfix">
+                                                <div class="image">
+                                                    <i class="fa fa-user bg-danger"></i>
+                                                </div>
+                                                <span class="title">@item.Name</span>
+                                                <span class="message">@item.Email</span>
+                                            </a>
+                                        </li>
+                                    }
+
+
+                                </ul>
+
+                                <hr />
+
+                                <div class="text-right">
+                                    <a href="@Url.Action("index", "applicants")" class="view-more">View All</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                <span class="separator"></span>
+
+                <div id="userbox" class="userbox">
+                    <a href="/Admin/#" data-toggle="dropdown">
+                        <figure class="profile-picture">
+                            <img src="/Admin/assets/images/!logged-user.jpg" alt="Joseph Doe" class="img-circle" data-lock-picture="assets/images/!logged-user.jpg" />
+                        </figure>
+                        <div class="profile-info" data-lock-name="John Doe" data-lock-email="johndoe@JSOFT.com">
+                            <span class="name">@System.Web.HttpContext.Current.Session["Name"]</span>
+                            <span class="role">@System.Web.HttpContext.Current.Session["admintype"]</span>
+                            <span class="role">@System.Web.HttpContext.Current.Session["managertype"]</span>
+                          
+                        </div>
+
+                        <i class="fa custom-caret"></i>
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <ul class="list-unstyled">
+                            @*<li class="divider"></li>
+                            @{ 
+                                var admins = db.Admins.Where(a => a.AdminType.Name == "Admin").ToList();
+                                var managers = db.Admins.Where(a => a.AdminType.Name == "Manager").ToList();
+                            }
+
+                            @if(admins!=null && Session["Name"]!=null)
+                            { 
+                                foreach (var item in admins)
+                                {
+                            <li>
+                                <a role="menuitem" tabindex="-1" href="@Url.Action("edit","admins",new { item.Id})"><i class="fa fa-user"></i> My Profile</a>
+                            </li>
+                                }
+                            }
+                            else if(managers!=null && Session["managertype"]!=null){ 
+                                foreach (var item in managers)
+                                {
+                                    <li>
+                                        <a role="menuitem" tabindex="-1" href="@Url.Action("edit","admins",new { item.Id})"><i class="fa fa-user"></i> My Profile</a>
+                                    </li>
+                                }
+                            
+                            }
+                            <li>*@
+                            <li>
+                                @if (Session["admintype"] != null)
+                                {
+                                <a role="menuitem" tabindex="-1" href="@Url.Action("AdminLogout", "Accounts")"><i class="fa fa-power-off"></i> Logout</a>
+                                }
+                                else if (Session["managertype"] != null)
+                                {
+                                    <a role="menuitem" tabindex="-1" href="@Url.Action("AdminLogout", "Accounts")"><i class="fa fa-power-off"></i> Logout</a>
+                                }
+                               
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- end: search & user box -->
+        </header>
+        <!-- end: header -->
+
+        <div class="inner-wrapper">
+            <!-- start: sidebar -->
+            <aside id="sidebar-left" class="sidebar-left">
+
+                <div class="sidebar-header">
+                    <div class="sidebar-title">
+                        Navigation
+                    </div>
+                    <div class="sidebar-toggle hidden-xs" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+                        <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                    </div>
+                </div>
+
+                <div class="nano">
+                    <div class="nano-content">
+                        <nav id="menu" class="nav-main" role="navigation">
+                            <ul class="nav nav-main">
+                                <li class="nav-active">
+                                    <a href="@Url.Action("Index","Home")">
+                                        <i class="fa fa-home" aria-hidden="true"></i>
+                                        <span>Dashboard</span>
+                                    </a>
+                                </li>
+                                @if (Session["admintype"] !=null)
+                                {
+                                    <li class="nav-active">
+                                        <a href="@Url.Action("Index","Admins")">
+                                            <i class="fa fa-user" aria-hidden="true"></i>
+                                            <span>Managers</span>
+                                        </a>
+                                    </li>
+                                }
+
+                                <li>
+                                    <a href="@Url.Action("Index","Applicants")">
+                                        <span class="pull-right label label-primary"></span>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Applicants</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Action("Index","Partners")">
+                                        <span class="pull-right label label-primary"></span>
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        <span>Partners</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Organizations")">
+                                        <span class="pull-right label label-primary"></span>
+                                        <i class="fa fa-users" aria-hidden="true"></i>
+                                        <span>Organizations</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","EmployeLogoes")">
+                                        <span class="pull-right label label-primary"></span>
+                                        <i class="fa fa-drupal" aria-hidden="true"></i>
+                                        <span>Employers Logo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Partnertinfo")">
+                                        <span class="pull-right label label-primary"></span>
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                        <span>Add Partner</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index","Orginfo")">
+                                        <span class="pull-right label label-primary"></span>
+                                        <i class="fa fa-plus" aria-hidden="true"></i>
+                                        <span>Add Organization</span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-parent">
+                                    <a>
+                                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+                                        <span>View Submitted CVs</span>
+                                    </a>
+                                    <ul class="nav nav-children">
+                                        <li>
+                                            <a href="@Url.Action("Pcacvs","Home")">
+                                                Partners CA/ACCA
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Pbbacvs","Home")">
+                                                Partners BBA/MBA
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Ocacvs","Home")">
+                                                Organizations CA/ACCA
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("Obbacvs","Home")">
+                                                Organizations BBA/MBA
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("ApplicantCA","Home")">
+                                                Applicants CA/ACCA
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="@Url.Action("ApplicantBBA","Home")">
+                                                Applicants BBA/MBA
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </nav>
+
+                     
+                    </div>
+
+                </div>
+
+            </aside>
+            <!-- end: sidebar -->
+            <section role="main" class="content-body">
+                @RenderBody();
+               
+            </section>
+</div>
+
+        <aside id="sidebar-right" class="sidebar-right">
+            <div class="nano">
+                <div class="nano-content">
+                    <a href="/Admin/#" class="mobile-close visible-xs">
+                        Collapse <i class="fa fa-chevron-right"></i>
+                    </a>
+
+                    <div class="sidebar-right-wrapper">
+
+                        <div class="sidebar-widget widget-calendar">
+                            <h6>Upcoming Tasks</h6>
+                            <div data-plugin-datepicker data-plugin-skin="dark"></div>
+
+                            <ul>
+                                <li>
+                                    <time datetime="2014-04-19T00:00+00:00">04/19/2014</time>
+                                    <span>Company Meeting</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="sidebar-widget widget-friends">
+                            <h6>Friends</h6>
+                            <ul>
+                                <li class="status-online">
+                                    <figure class="profile-picture">
+                                        <img src="/Admin/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                                    </figure>
+                                    <div class="profile-info">
+                                        <span class="name">Joseph Doe Junior</span>
+                                        <span class="title">Hey, how are you?</span>
+                                    </div>
+                                </li>
+                                <li class="status-online">
+                                    <figure class="profile-picture">
+                                        <img src="/Admin/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                                    </figure>
+                                    <div class="profile-info">
+                                        <span class="name">Joseph Doe Junior</span>
+                                        <span class="title">Hey, how are you?</span>
+                                    </div>
+                                </li>
+                                <li class="status-offline">
+                                    <figure class="profile-picture">
+                                        <img src="/Admin/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                                    </figure>
+                                    <div class="profile-info">
+                                        <span class="name">Joseph Doe Junior</span>
+                                        <span class="title">Hey, how are you?</span>
+                                    </div>
+                                </li>
+                                <li class="status-offline">
+                                    <figure class="profile-picture">
+                                        <img src="/Admin/assets/images/!sample-user.jpg" alt="Joseph Doe" class="img-circle">
+                                    </figure>
+                                    <div class="profile-info">
+                                        <span class="name">Joseph Doe Junior</span>
+                                        <span class="title">Hey, how are you?</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#datatable-tabletools').dataTable({
+            destroy:true,
+            print: false,
+
+        });
+    });
+    </script>
+    <!-- Vendor -->
+    <script src="/Admin/assets/vendor/jquery/jquery.js"></script>
+   
+   
+    <script src="/Admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="/Admin/assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="/Admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="/Admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/Admin/assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="/Admin/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+   
+    <!-- Specific Page Vendor -->
+    <script src="/Admin/assets/vendor/select2/select2.js"></script>
+    <script src="/Admin/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+    <script src="/Admin/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script src="/Admin/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+    <script src="/Admin/assets/vendor/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="/Admin/assets/vendor/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+    <script src="/Admin/assets/vendor/jquery-appear/jquery.appear.js"></script>
+    <script src="/Admin/assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+    <script src="/Admin/assets/vendor/jquery-easypiechart/jquery.easypiechart.js"></script>
+    <script src="/Admin/assets/vendor/flot/jquery.flot.js"></script>
+    <script src="/Admin/assets/vendor/flot-tooltip/jquery.flot.tooltip.js"></script>
+    <script src="/Admin/assets/vendor/flot/jquery.flot.pie.js"></script>
+    <script src="/Admin/assets/vendor/flot/jquery.flot.categories.js"></script>
+    <script src="/Admin/assets/vendor/flot/jquery.flot.resize.js"></script>
+    <script src="/Admin/assets/vendor/jquery-sparkline/jquery.sparkline.js"></script>
+    <script src="/Admin/assets/vendor/raphael/raphael.js"></script>
+    <script src="/Admin/assets/vendor/morris/morris.js"></script>
+    <script src="/Admin/assets/vendor/gauge/gauge.js"></script>
+    <script src="/Admin/assets/vendor/snap-svg/snap.svg.js"></script>
+    <script src="/Admin/assets/vendor/liquid-meter/liquid.meter.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/jquery.vmap.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/data/jquery.vmap.sampledata.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/maps/continents/jquery.vmap.africa.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/maps/continents/jquery.vmap.asia.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/maps/continents/jquery.vmap.australia.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/maps/continents/jquery.vmap.europe.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/maps/continents/jquery.vmap.north-america.js"></script>
+    <script src="/Admin/assets/vendor/jqvmap/maps/continents/jquery.vmap.south-america.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="/Admin/assets/javascripts/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="/Admin/assets/javascripts/theme.custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="/Admin/assets/javascripts/theme.init.js"></script>
+
+
+    <!-- Examples -->
+    <script src="/Admin/assets/javascripts/dashboard/examples.dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EthlonConsultancy.EmployeLogo>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-4"><h2>Employe Logos</h2><a href="@Url.Action("Create","EmployeLogoes")"><button class="btn" style="background-color:#d41e48; color:white;">Create</button></a></div>
+    <div class="col-lg-4" align="right"><p style="margin-top:25px;"></p></div>
+    <div class="col-lg-4 mt-lg">
+
+
+    </div>
+</div>
+
+<table class="table mt-lg">
+    <tr style="background-color:#d41e48;color:white;">
+        <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src="~/Logos/@item.Image" alt="Alternate Text" height="100" width="100" />
+            </td>
+            <td>
+                <a href="@Url.Action("Delete","EmployeLogoes",new {id=item.Id })"><i class="fa fa-trash-o fa-fw" style="font-size:20px;"></i></a> 
+            </td>
+        </tr>
+    }
+
+</table>

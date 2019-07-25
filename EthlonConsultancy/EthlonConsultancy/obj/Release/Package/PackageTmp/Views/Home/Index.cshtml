@@ -1,0 +1,136 @@
+﻿
+    <header class="page-header">
+        <h2>Dashboard</h2>
+
+      
+    </header>
+
+    
+
+    <!-- start: page -->
+    <div class="row">
+        
+        <div class="col-md-6 col-lg-12 col-xl-6 mt-lg">
+            <div class="row">
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <section class="card card-featured-left">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-primary">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Active Partners</h4>
+                                        <div class="info">
+                                            @{ 
+                                                var db = new EthlonConsultancy.EthlonEntities();
+                                                var prtapprove = db.Partners.Where(p => p.Status.Name == "Approved").LongCount();
+                                                var prtpending = db.Partners.Where(p => p.Status.Name == "Pending").LongCount();
+                                            <strong class="amount">@prtapprove</strong>
+                                            <span class="text-primary">(@prtpending pending)</span>
+                                                }
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer">
+                                        <a class="text-muted text-uppercase" href="@Url.Action("index","partners")">view all</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6">
+                    <section class="card card-featured-left card-featured-secondary">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-secondary">
+                                        <i class="fa fa-users"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Active Organizations</h4>
+                                        <div class="info">
+                                            @{ 
+                                                var orgapprove = db.Organizations.Where(p => p.Status.Name == "Approved").LongCount();
+                                                var orgpending = db.Organizations.Where(p => p.Status.Name == "Pending").LongCount();
+                                            }
+                                            <strong class="amount">@orgapprove</strong>
+                                            <span class="text-primary">(@orgpending pending)</span>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer">
+                                        <a class="text-muted text-uppercase" href="@Url.Action("index","organizations")">View All</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6 mt-lg">
+                    <section class="card card-featured-left card-featured-tertiary">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-tertiary">
+                                        <i class="fa fa-file-pdf-o"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Total Partners CA/ACCA CVs Submitted</h4>
+                                        @{ 
+                                            var prtcacvs = db.PartnersQualViews.LongCount();
+                                        }
+                                        <div class="info">
+                                            <strong class="amount">@prtcacvs</strong>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="col-md-12 col-lg-6 col-xl-6 mt-lg">
+                    <section class="card card-featured-left card-featured-quartenary">
+                        <div class="panel-body">
+                            <div class="widget-summary">
+                                <div class="widget-summary-col widget-summary-col-icon">
+                                    <div class="summary-icon bg-quartenary">
+                                        <i class="fa fa-file-pdf-o"></i>
+                                    </div>
+                                </div>
+                                <div class="widget-summary-col">
+                                    <div class="summary">
+                                        <h4 class="title">Total Org CVs Submitted</h4>
+                                        @{ 
+                                            var orgcvs = db.Organizationscvs.LongCount();
+                                        }
+                                        <div class="info">
+                                            <strong class="amount">@orgcvs</strong>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    
+    <!-- end: page -->

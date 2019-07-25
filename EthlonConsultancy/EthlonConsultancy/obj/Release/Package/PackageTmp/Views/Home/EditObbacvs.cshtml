@@ -1,0 +1,356 @@
+﻿@model EthlonConsultancy.Organizationscv
+
+@{
+    ViewBag.Title = "OrganizationForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ethlon Consultancy | Organizations CV</title>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+
+    <script>
+        function getselectitem(ddl)
+        {
+            var ddl = ddl.children;
+
+            for (var i = 0; i < ddl.length; i++) {
+                if(ddl[i].selected == true)
+                {
+                    return ddl[i].innerText;
+                }
+            }
+        }
+
+        window.onload = function () {
+            document.getElementById('msubject').value = '';
+            document.getElementById('qualstatuscol').style.display = 'block';
+            document.getElementById('doqual').style.display = 'block';
+            document.getElementById('nopleft').style.display = 'none';
+            document.getElementById('gpa').style.display = 'none';
+            document.getElementById('uni').style.display = 'none';
+            document.getElementById('msubjectcol').style.display = 'none';
+            //document.getElementById('bemsubjectcol').style.display = 'none';
+            document.getElementById('osubject').style.display = 'none';
+            document.getElementById('expstatuscol').style.display = 'block';
+            document.getElementById('noyme').style.display = 'block';
+            document.getElementById('organiname').style.display = 'block';
+        };
+
+        function Qual_On_Change()
+        {
+            var qual = document.getElementById('qual');
+            var qualstat=document.getElementById('qualstatus');
+
+            if(qual.value=="ACCA" || qual.value=="CA(CAF)")
+            {
+                document.getElementById('nopleft').style.display = 'none';
+                document.getElementById('gpa').style.display = 'none';
+                document.getElementById('uni').style.display = 'none';
+                document.getElementById('msubjectcol').style.display = 'none';
+                //document.getElementById('bemsubjectcol').style.display = 'none';
+                document.getElementById('qualstatuscol').style.display = 'block';
+                document.getElementById('doqual').style.display = 'block';
+                document.getElementById('postgpa').value = '';
+                document.getElementById('msubject').value = '';
+                //document.getElementById('bemsubject').value = '';
+                document.getElementById('qualstatus').value = '';
+                document.getElementById('postuni').value = '';
+                document.getElementById('postnopl').value = '';
+                document.getElementById('postdoq').value = '';
+
+                document.getElementById('osubject').style.display = 'none';
+
+                if (qualstat.value == "Yes") {
+                    document.getElementById('nopleft').style.display = 'none';
+                    document.getElementById('doqual').style.display = 'block';
+                }
+
+                else if (qualstat.value == "No") {
+                    document.getElementById('doqual').style.display = 'none';
+                    document.getElementById('nopleft').style.display = 'block';
+                }
+            }
+            else if(qual.value=="BBA" || qual.value=="MBA")
+            {
+                document.getElementById('msubject').value = '';
+                document.getElementById('bemoption').style.display = 'none';
+                document.getElementById('bemoption2').style.display = 'none';
+                document.getElementById('bemoption3').style.display = 'none';
+                document.getElementById('moption').style.display = 'block';
+                document.getElementById('moption2').style.display = 'block';
+                document.getElementById('moption3').style.display = 'block';
+                document.getElementById('moption4').style.display = 'block';
+                document.getElementById('doqual').style.display = 'none';
+                document.getElementById('qualstatuscol').style.display = 'none';
+                //document.getElementById('bemsubjectcol').style.display = 'none';
+                document.getElementById('osubject').style.display = 'none';
+                document.getElementById('gpa').style.display = 'block';
+                document.getElementById('uni').style.display = 'block';
+                document.getElementById('msubjectcol').style.display = 'block';
+                document.getElementById('qualstatus').value = '';
+            }
+
+            else if(qual.value=="B.Engineering")
+            {
+                document.getElementById('msubject').value = '';
+                document.getElementById('moption').style.display = 'none';
+                document.getElementById('moption2').style.display = 'none';
+                document.getElementById('moption3').style.display = 'none';
+                document.getElementById('moption4').style.display = 'none';
+                document.getElementById('bemoption').style.display = 'block';
+                document.getElementById('bemoption2').style.display = 'block';
+                document.getElementById('bemoption3').style.display = 'block';
+                document.getElementById('doqual').style.display = 'none';
+                document.getElementById('qualstatuscol').style.display = 'none';
+                document.getElementById('osubject').style.display = 'none';
+                document.getElementById('gpa').style.display = 'block';
+                document.getElementById('uni').style.display = 'block';
+                document.getElementById('msubjectcol').style.display = 'block';
+                //document.getElementById('bemsubjectcol').style.display = 'block';
+                document.getElementById('qualstatus').value = '';
+            }
+
+        }
+
+        function Qualstatus_On_Change()
+        {
+            var qualstatus = document.getElementById('qualstatus');
+            if(qualstatus.value=="Yes")
+            {
+                document.getElementById('nopleft').style.display = 'none';
+                document.getElementById('doqual').style.display = 'block';
+            }
+
+            else {
+
+                document.getElementById('doqual').style.display = 'none';
+                document.getElementById('nopleft').style.display = 'block';
+            }
+        }
+
+        function Msubject_On_Change()
+        {
+            var msubject = document.getElementById('msubject');
+            if(msubject.value=="others")
+            {
+                document.getElementById('osubject').style.display = 'block';
+            }
+            else {
+
+                document.getElementById('osubject').style.display = 'none';
+            }
+
+        }
+
+
+        function Exp_On_Change()
+        {
+            var expstatus = document.getElementById('expstatus');
+            if(expstatus.value=="Yes")
+            {
+
+                document.getElementById('noyme').style.display = 'block';
+                document.getElementById('organiname').style.display = 'block';
+            }
+
+            else {
+                document.getElementById('postnoyme').value = '';
+                document.getElementById('noyme').style.display = 'none';
+                document.getElementById('organiname').style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        @using (Html.BeginForm("EditObbacvs", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true, "", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", } })
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <label>Name</label>
+                        @*<input type="text" name="name" id="postname" value="" class="form-control" required />*@
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @name = "Name" } })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        <label>Email</label>
+                        @*<input type="email" name="email" id="postemail" value="" class="form-control" required />*@
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @name = "Email" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-3">
+                        <label>Upload CV</label>
+                        <input type="file" name="file" id="filepost" value="" class="form-control" required />
+                    </div>
+                </div>
+            </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <label>City</label>
+                            @*<input type="text" name="city" id="postcity" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @name = "City" } })
+                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <label>Age</label>
+                            @*<input type="number" name="dob" min="18" max="80" id="postdob" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", @name = "DOB", @min = "18", @max = "80" } })
+                            @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <label>Refer By</label>
+                            @*<input type="text" name="referby" id="postreferby" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.ReferBy, new { htmlAttributes = new { @class = "form-control", @name = "ReferBy" } })
+                            @Html.ValidationMessageFor(model => model.ReferBy, "", new { @class = "text-danger" })
+                        </div>
+
+                    </div>
+                </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <label>Qualification</label>
+                            <select name="qualification" class="form-control" id="qual" onchange="Qual_On_Change();">
+                                <option value="CA(CAF)">CA(CAF)</option>
+                                <option value="ACCA">ACCA</option>
+                                <option value="BBA">BBA</option>
+                                <option value="MBA">MBA</option>
+                                <option value="B.Engineering">B.Engineering</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" id="qualstatuscol">
+                            <label>Qualification Status</label>
+                            <select name="qualifystatus" class="form-control" id="qualstatus" onchange="Qualstatus_On_Change();">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" id="gpa">
+                            <label>GPA</label>
+                            <input type="number" name="gpa" value="" id="postgpa" class="form-control" />
+
+                        </div>
+                        <div class="col-md-3" id="doqual">
+                            <label>Date Of Qualification</label>
+                            <input type="date" name="doq" value="" id="postdoq" class="form-control" />
+                        </div>
+                        <div class="col-md-3" id="nopleft">
+                            <label>No Of Papers Left</label>
+                            <input type="number" name="nopl" value="" id="postnopl" class="form-control" />
+                        </div>
+                        <div class="col-md-3" id="uni">
+                            <label>University</label>
+                            <input type="text" name="university" value="" id="postuni" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3" id="msubjectcol">
+                            <label>Major Subjects</label>
+                            <select name="majorsubject" class="form-control" id="msubject" onchange="Msubject_On_Change();">
+                                <option value="finance" id="moption">Finance</option>
+                                <option value="supply chain" id="moption2">Supply Chain</option>
+                                <option value="marketing media" id="moption3">Marketing Media</option>
+                                <option value="administration" id="moption4">Administration</option>
+                                <option value="electronics" id="bemoption">Electronics</option>
+                                <option value="electrical" id="bemoption2">Electrical</option>
+                                <option value="mechanical" id="bemoption3">Mechanical</option>
+                                <option value="others" id="moption">Others(please specify)</option>
+                            </select>
+                        </div>
+                        @*<div class="col-md-3" id="bemsubjectcol">
+                                <label>Major Subjects</label>
+                                <select name="majorsubject" class="form-control" id="bemsubject" onchange="BemSubject_On_Change();">
+
+                                </select>
+                            </div>*@
+                        <div class="col-md-3" id="osubject">
+                            <label>Others</label>
+                            <input type="text" name="other" value="" id="postosubject" class="form-control" />
+                        </div>
+                        <div class="col-md-3" id="">
+                            <label>Education Board</label>
+                            <select class="form-control" name="educationboard">
+                                <option value="Matric">Matric</option>
+                                <option value="O/A Levels">O/A Levels</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width:820px;border:2px solid black;margin-left:15px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3" id="expstatuscol">
+                            <label>Experience</label>
+                            <select name="experiencestatus" class="form-control" id="expstatus" onchange="Exp_On_Change();">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" id="noyme">
+                            <label>No Of Year/Month Experience</label>
+                            @*<input type="text" name="noymexp" value="" id="postnoyme" class="form-control" />*@
+                            <select name="noymexp" id="postnoyme" class="form-control">
+                                <option value="0-1 Year">0-1 Year</option>
+                                <option value="1-3 Years">1-3 Year</option>
+                                <option value="3-5 Years">3-5 Year</option>
+                                <option value="More than 5 years">More than 5 Year</option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-3" id="organiname">
+                            <label>Organization Name</label>
+                            <input type="text" name="orgname" value="" id="orgname" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-info">Save</button>
+                        </div>
+                    </div>
+                </div>
+
+        }
+
+
+    </div>
+    <script src="~/scripts/toastr.min.js"></script>
+    <script>
+        $(function () {
+            var a = '@TempData["successmessage"]';
+            if (a != '')
+                toastr.success("", a);
+            //alert("ab" + a)
+
+        })
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

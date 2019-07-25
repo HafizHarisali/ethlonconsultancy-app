@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EthlondbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="250" />
+    <Property Name="AdminTypeId" Type="int" />
+  </EntityType>
+  <EntityType Name="AdminTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Applicantpartnerscvs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="AppCVUpload" Type="varchar(max)" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="QName" Type="varchar" MaxLength="50" />
+    <Property Name="QStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="Industry" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="GName" Type="varchar" MaxLength="50" />
+    <Property Name="GStatus" Type="varchar" MaxLength="50" />
+    <Property Name="FirmName" Type="varchar" MaxLength="50" />
+    <Property Name="TotalExp" Type="varchar" MaxLength="50" />
+    <Property Name="Experties" Type="varchar" MaxLength="50" />
+    <Property Name="ExpCity" Type="varchar" MaxLength="50" />
+    <Property Name="RelevantIndustry" Type="varchar" MaxLength="50" />
+    <Property Name="JoinDate" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveDateOPW" Type="varchar" MaxLength="50" />
+    <Property Name="Applicantid" Type="int" />
+  </EntityType>
+  <EntityType Name="Applicants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="UniversityName" Type="varchar" MaxLength="150" />
+    <Property Name="FirmName" Type="varchar" MaxLength="150" />
+    <Property Name="Type" Type="varchar" MaxLength="80" />
+    <Property Name="Statusid" Type="int" />
+  </EntityType>
+  <EntityType Name="Applicantscv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Address" Type="varchar" MaxLength="350" />
+    <Property Name="Contactno" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="Schoolname" Type="varchar" MaxLength="250" />
+    <Property Name="Collegename" Type="varchar" MaxLength="250" />
+    <Property Name="AcadQual" Type="varchar" MaxLength="50" />
+    <Property Name="AdvAcadQual" Type="varchar" MaxLength="50" />
+    <Property Name="Qualname" Type="varchar" MaxLength="50" />
+    <Property Name="Qualstatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="GName" Type="varchar" MaxLength="100" />
+    <Property Name="GPA" Type="varchar" MaxLength="50" />
+    <Property Name="University" Type="varchar" MaxLength="50" />
+    <Property Name="MajorSubjects" Type="varchar" MaxLength="50" />
+    <Property Name="OtherSubjects" Type="varchar" MaxLength="150" />
+    <Property Name="Extracuri" Type="varchar" MaxLength="1000" />
+    <Property Name="Achivements" Type="varchar" MaxLength="1000" />
+    <Property Name="ExpStatus" Type="varchar" MaxLength="20" />
+    <Property Name="NOYExperience" Type="varchar" MaxLength="50" />
+    <Property Name="OrgName" Type="varchar" MaxLength="100" />
+    <Property Name="Agree" Type="varchar" MaxLength="50" />
+    <Property Name="UploadCV" Type="varchar" MaxLength="1000" />
+    <Property Name="Applicantid" Type="int" />
+  </EntityType>
+  <EntityType Name="EmployeLogos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Image" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Organizations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="CoordinatorName" Type="varchar" MaxLength="150" />
+    <Property Name="CoordinatorPhone" Type="varchar" MaxLength="50" />
+    <Property Name="IndustryNuture" Type="varchar" MaxLength="200" />
+    <Property Name="Wallet" Type="varchar" MaxLength="100" />
+    <Property Name="StatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Organizationscv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="OrgCVUpload" Type="varchar(max)" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="QName" Type="varchar" MaxLength="80" />
+    <Property Name="QStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="EducationBoard" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="GName" Type="varchar" MaxLength="50" />
+    <Property Name="GPA" Type="varchar" MaxLength="50" />
+    <Property Name="University" Type="varchar" MaxLength="100" />
+    <Property Name="MajorSubject" Type="varchar" MaxLength="200" />
+    <Property Name="OtherSubject" Type="varchar" MaxLength="50" />
+    <Property Name="ExpStatus" Type="varchar" MaxLength="50" />
+    <Property Name="NOYMExperience" Type="varchar" MaxLength="50" />
+    <Property Name="OrgName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="FirmName" Type="varchar" MaxLength="150" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Password" Type="varchar" MaxLength="50" />
+    <Property Name="StatusId" Type="int" />
+  </EntityType>
+  <EntityType Name="Partnerscv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="PrtCVUpload" Type="varchar(max)" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="100" />
+    <Property Name="QName" Type="varchar" MaxLength="50" />
+    <Property Name="QStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="Industry" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="GName" Type="varchar" MaxLength="50" />
+    <Property Name="GStatus" Type="varchar" MaxLength="50" />
+    <Property Name="FirmName" Type="varchar" MaxLength="80" />
+    <Property Name="TotalExp" Type="varchar" MaxLength="50" />
+    <Property Name="Experties" Type="varchar" MaxLength="50" />
+    <Property Name="ExpCity" Type="varchar" MaxLength="50" />
+    <Property Name="JoinDate" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveDateOPW" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PostJobs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrgName" Type="varchar" MaxLength="150" />
+    <Property Name="JobTitle" Type="varchar" MaxLength="150" />
+    <Property Name="CurrentDate" Type="date" />
+    <Property Name="Deadline" Type="date" />
+    <Property Name="QualRequirements" Type="text" />
+  </EntityType>
+  <EntityType Name="Statuses">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="80" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.ApplicantBBAView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ApplicantBBAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Address" Type="varchar" MaxLength="350" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Contactno" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="Schoolname" Type="varchar" MaxLength="250" />
+    <Property Name="Collegename" Type="varchar" MaxLength="250" />
+    <Property Name="AcadQual" Type="varchar" MaxLength="50" />
+    <Property Name="AdvAcadQual" Type="varchar" MaxLength="50" />
+    <Property Name="GName" Type="varchar" MaxLength="100" />
+    <Property Name="GPA" Type="varchar" MaxLength="50" />
+    <Property Name="University" Type="varchar" MaxLength="50" />
+    <Property Name="MajorSubjects" Type="varchar" MaxLength="50" />
+    <Property Name="OtherSubjects" Type="varchar" MaxLength="150" />
+    <Property Name="Extracuri" Type="varchar" MaxLength="1000" />
+    <Property Name="Achivements" Type="varchar" MaxLength="1000" />
+    <Property Name="ExpStatus" Type="varchar" MaxLength="20" />
+    <Property Name="NOYExperience" Type="varchar" MaxLength="50" />
+    <Property Name="OrgName" Type="varchar" MaxLength="100" />
+    <Property Name="Agree" Type="varchar" MaxLength="50" />
+    <Property Name="UploadCV" Type="varchar" MaxLength="1000" />
+    <Property Name="Applicantid" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.ApplicantCAView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ApplicantCAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="Address" Type="varchar" MaxLength="350" />
+    <Property Name="Contactno" Type="varchar" MaxLength="50" />
+    <Property Name="Age" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="Schoolname" Type="varchar" MaxLength="250" />
+    <Property Name="Collegename" Type="varchar" MaxLength="250" />
+    <Property Name="AcadQual" Type="varchar" MaxLength="50" />
+    <Property Name="AdvAcadQual" Type="varchar" MaxLength="50" />
+    <Property Name="Qualname" Type="varchar" MaxLength="50" />
+    <Property Name="Qualstatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="Extracuri" Type="varchar" MaxLength="1000" />
+    <Property Name="Achivements" Type="varchar" MaxLength="1000" />
+    <Property Name="ExpStatus" Type="varchar" MaxLength="20" />
+    <Property Name="NOYExperience" Type="varchar" MaxLength="50" />
+    <Property Name="OrgName" Type="varchar" MaxLength="100" />
+    <Property Name="Agree" Type="varchar" MaxLength="50" />
+    <Property Name="UploadCV" Type="varchar" MaxLength="1000" />
+    <Property Name="Applicantid" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.ApplicantpartnerACCAView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ApplicantpartnerACCAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="AppCVUpload" Type="varchar(max)" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="QName" Type="varchar" MaxLength="50" />
+    <Property Name="QStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="Industry" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="FirmName" Type="varchar" MaxLength="50" />
+    <Property Name="TotalExp" Type="varchar" MaxLength="50" />
+    <Property Name="Experties" Type="varchar" MaxLength="50" />
+    <Property Name="ExpCity" Type="varchar" MaxLength="50" />
+    <Property Name="JoinDate" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveDateOPW" Type="varchar" MaxLength="50" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RelevantIndustry" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.ApplicantpartnerBBAView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ApplicantpartnerBBAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="AppCVUpload" Type="varchar(max)" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="Industry" Type="varchar" MaxLength="50" />
+    <Property Name="GName" Type="varchar" MaxLength="50" />
+    <Property Name="GStatus" Type="varchar" MaxLength="50" />
+    <Property Name="FirmName" Type="varchar" MaxLength="50" />
+    <Property Name="TotalExp" Type="varchar" MaxLength="50" />
+    <Property Name="Experties" Type="varchar" MaxLength="50" />
+    <Property Name="ExpCity" Type="varchar" MaxLength="50" />
+    <Property Name="JoinDate" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveDateOPW" Type="varchar" MaxLength="50" />
+    <Property Name="RelevantIndustry" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.OrganizationGpaView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrganizationGpaView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="OrgCVUpload" Type="varchar(max)" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="GName" Type="varchar" MaxLength="50" />
+    <Property Name="GPA" Type="varchar" MaxLength="50" />
+    <Property Name="University" Type="varchar" MaxLength="100" />
+    <Property Name="MajorSubject" Type="varchar" MaxLength="200" />
+    <Property Name="OtherSubject" Type="varchar" MaxLength="50" />
+    <Property Name="ExpStatus" Type="varchar" MaxLength="50" />
+    <Property Name="NOYMExperience" Type="varchar" MaxLength="50" />
+    <Property Name="OrgName" Type="varchar" MaxLength="50" />
+    <Property Name="EducationBoard" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.OrganizationQualView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrganizationQualView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="OrgCVUpload" Type="varchar(max)" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="50" />
+    <Property Name="QName" Type="varchar" MaxLength="80" />
+    <Property Name="QStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="ExpStatus" Type="varchar" MaxLength="50" />
+    <Property Name="NOYMExperience" Type="varchar" MaxLength="50" />
+    <Property Name="OrgName" Type="varchar" MaxLength="50" />
+    <Property Name="EducationBoard" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.PartnersGpaView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PartnersGpaView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="PrtCVUpload" Type="varchar(max)" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="100" />
+    <Property Name="GName" Type="varchar" MaxLength="50" />
+    <Property Name="GStatus" Type="varchar" MaxLength="50" />
+    <Property Name="FirmName" Type="varchar" MaxLength="80" />
+    <Property Name="ExpCity" Type="varchar" MaxLength="50" />
+    <Property Name="JoinDate" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveDateOPW" Type="varchar" MaxLength="50" />
+    <Property Name="Industry" Type="varchar" MaxLength="50" />
+    <Property Name="TotalExp" Type="varchar" MaxLength="50" />
+    <Property Name="Experties" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'Ethlondb.dbo.PartnersQualView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PartnersQualView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="PrtCVUpload" Type="varchar(max)" />
+    <Property Name="DOB" Type="varchar" MaxLength="50" />
+    <Property Name="ReferBy" Type="varchar" MaxLength="100" />
+    <Property Name="QName" Type="varchar" MaxLength="50" />
+    <Property Name="QStatus" Type="varchar" MaxLength="50" />
+    <Property Name="DOQ" Type="varchar" MaxLength="50" />
+    <Property Name="NOPL" Type="varchar" MaxLength="50" />
+    <Property Name="FirmName" Type="varchar" MaxLength="80" />
+    <Property Name="ExpCity" Type="varchar" MaxLength="50" />
+    <Property Name="JoinDate" Type="varchar" MaxLength="50" />
+    <Property Name="LeaveDateOPW" Type="varchar" MaxLength="50" />
+    <Property Name="Experties" Type="varchar" MaxLength="50" />
+    <Property Name="TotalExp" Type="varchar" MaxLength="50" />
+    <Property Name="Industry" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Admin_AdminTypes">
+    <End Role="AdminTypes" Type="Self.AdminTypes" Multiplicity="0..1" />
+    <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="AdminTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicantpartnerscvs_Applicants">
+    <End Role="Applicants" Type="Self.Applicants" Multiplicity="0..1" />
+    <End Role="Applicantpartnerscvs" Type="Self.Applicantpartnerscvs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicants">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applicantpartnerscvs">
+        <PropertyRef Name="Applicantid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicants_Statuses">
+    <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+    <End Role="Applicants" Type="Self.Applicants" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applicants">
+        <PropertyRef Name="Statusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicantscv_Applicants">
+    <End Role="Applicants" Type="Self.Applicants" Multiplicity="0..1" />
+    <End Role="Applicantscv" Type="Self.Applicantscv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicants">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applicantscv">
+        <PropertyRef Name="Applicantid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organizations_Statuses">
+    <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+    <End Role="Organizations" Type="Self.Organizations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Organizations">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partners_Statuses">
+    <End Role="Statuses" Type="Self.Statuses" Multiplicity="0..1" />
+    <End Role="Partners" Type="Self.Partners" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partners">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EthlondbModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AdminTypes" EntityType="Self.AdminTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applicantpartnerscvs" EntityType="Self.Applicantpartnerscvs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Applicantscv" EntityType="Self.Applicantscv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EmployeLogos" EntityType="Self.EmployeLogos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organizations" EntityType="Self.Organizations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Organizationscv" EntityType="Self.Organizationscv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partners" EntityType="Self.Partners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Partnerscv" EntityType="Self.Partnerscv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostJobs" EntityType="Self.PostJobs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Statuses" EntityType="Self.Statuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ApplicantBBAView" EntityType="Self.ApplicantBBAView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ApplicantBBAView].[Id] AS [Id], 
+    [ApplicantBBAView].[Name] AS [Name], 
+    [ApplicantBBAView].[Address] AS [Address], 
+    [ApplicantBBAView].[Email] AS [Email], 
+    [ApplicantBBAView].[Contactno] AS [Contactno], 
+    [ApplicantBBAView].[Age] AS [Age], 
+    [ApplicantBBAView].[ReferBy] AS [ReferBy], 
+    [ApplicantBBAView].[Schoolname] AS [Schoolname], 
+    [ApplicantBBAView].[Collegename] AS [Collegename], 
+    [ApplicantBBAView].[AcadQual] AS [AcadQual], 
+    [ApplicantBBAView].[AdvAcadQual] AS [AdvAcadQual], 
+    [ApplicantBBAView].[GName] AS [GName], 
+    [ApplicantBBAView].[GPA] AS [GPA], 
+    [ApplicantBBAView].[University] AS [University], 
+    [ApplicantBBAView].[MajorSubjects] AS [MajorSubjects], 
+    [ApplicantBBAView].[OtherSubjects] AS [OtherSubjects], 
+    [ApplicantBBAView].[Extracuri] AS [Extracuri], 
+    [ApplicantBBAView].[Achivements] AS [Achivements], 
+    [ApplicantBBAView].[ExpStatus] AS [ExpStatus], 
+    [ApplicantBBAView].[NOYExperience] AS [NOYExperience], 
+    [ApplicantBBAView].[OrgName] AS [OrgName], 
+    [ApplicantBBAView].[Agree] AS [Agree], 
+    [ApplicantBBAView].[UploadCV] AS [UploadCV], 
+    [ApplicantBBAView].[Applicantid] AS [Applicantid]
+    FROM [dbo].[ApplicantBBAView] AS [ApplicantBBAView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ApplicantCAView" EntityType="Self.ApplicantCAView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ApplicantCAView].[Id] AS [Id], 
+    [ApplicantCAView].[Name] AS [Name], 
+    [ApplicantCAView].[Email] AS [Email], 
+    [ApplicantCAView].[Address] AS [Address], 
+    [ApplicantCAView].[Contactno] AS [Contactno], 
+    [ApplicantCAView].[Age] AS [Age], 
+    [ApplicantCAView].[ReferBy] AS [ReferBy], 
+    [ApplicantCAView].[Schoolname] AS [Schoolname], 
+    [ApplicantCAView].[Collegename] AS [Collegename], 
+    [ApplicantCAView].[AcadQual] AS [AcadQual], 
+    [ApplicantCAView].[AdvAcadQual] AS [AdvAcadQual], 
+    [ApplicantCAView].[Qualname] AS [Qualname], 
+    [ApplicantCAView].[Qualstatus] AS [Qualstatus], 
+    [ApplicantCAView].[DOQ] AS [DOQ], 
+    [ApplicantCAView].[NOPL] AS [NOPL], 
+    [ApplicantCAView].[Extracuri] AS [Extracuri], 
+    [ApplicantCAView].[Achivements] AS [Achivements], 
+    [ApplicantCAView].[ExpStatus] AS [ExpStatus], 
+    [ApplicantCAView].[NOYExperience] AS [NOYExperience], 
+    [ApplicantCAView].[OrgName] AS [OrgName], 
+    [ApplicantCAView].[Agree] AS [Agree], 
+    [ApplicantCAView].[UploadCV] AS [UploadCV], 
+    [ApplicantCAView].[Applicantid] AS [Applicantid]
+    FROM [dbo].[ApplicantCAView] AS [ApplicantCAView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ApplicantpartnerACCAView" EntityType="Self.ApplicantpartnerACCAView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ApplicantpartnerACCAView].[Name] AS [Name], 
+    [ApplicantpartnerACCAView].[Email] AS [Email], 
+    [ApplicantpartnerACCAView].[Country] AS [Country], 
+    [ApplicantpartnerACCAView].[City] AS [City], 
+    [ApplicantpartnerACCAView].[AppCVUpload] AS [AppCVUpload], 
+    [ApplicantpartnerACCAView].[DOB] AS [DOB], 
+    [ApplicantpartnerACCAView].[ReferBy] AS [ReferBy], 
+    [ApplicantpartnerACCAView].[QName] AS [QName], 
+    [ApplicantpartnerACCAView].[QStatus] AS [QStatus], 
+    [ApplicantpartnerACCAView].[DOQ] AS [DOQ], 
+    [ApplicantpartnerACCAView].[Industry] AS [Industry], 
+    [ApplicantpartnerACCAView].[NOPL] AS [NOPL], 
+    [ApplicantpartnerACCAView].[FirmName] AS [FirmName], 
+    [ApplicantpartnerACCAView].[TotalExp] AS [TotalExp], 
+    [ApplicantpartnerACCAView].[Experties] AS [Experties], 
+    [ApplicantpartnerACCAView].[ExpCity] AS [ExpCity], 
+    [ApplicantpartnerACCAView].[JoinDate] AS [JoinDate], 
+    [ApplicantpartnerACCAView].[LeaveDateOPW] AS [LeaveDateOPW], 
+    [ApplicantpartnerACCAView].[Id] AS [Id], 
+    [ApplicantpartnerACCAView].[RelevantIndustry] AS [RelevantIndustry]
+    FROM [dbo].[ApplicantpartnerACCAView] AS [ApplicantpartnerACCAView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ApplicantpartnerBBAView" EntityType="Self.ApplicantpartnerBBAView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ApplicantpartnerBBAView].[Id] AS [Id], 
+    [ApplicantpartnerBBAView].[Name] AS [Name], 
+    [ApplicantpartnerBBAView].[Email] AS [Email], 
+    [ApplicantpartnerBBAView].[City] AS [City], 
+    [ApplicantpartnerBBAView].[AppCVUpload] AS [AppCVUpload], 
+    [ApplicantpartnerBBAView].[DOB] AS [DOB], 
+    [ApplicantpartnerBBAView].[ReferBy] AS [ReferBy], 
+    [ApplicantpartnerBBAView].[Industry] AS [Industry], 
+    [ApplicantpartnerBBAView].[GName] AS [GName], 
+    [ApplicantpartnerBBAView].[GStatus] AS [GStatus], 
+    [ApplicantpartnerBBAView].[FirmName] AS [FirmName], 
+    [ApplicantpartnerBBAView].[TotalExp] AS [TotalExp], 
+    [ApplicantpartnerBBAView].[Experties] AS [Experties], 
+    [ApplicantpartnerBBAView].[ExpCity] AS [ExpCity], 
+    [ApplicantpartnerBBAView].[JoinDate] AS [JoinDate], 
+    [ApplicantpartnerBBAView].[LeaveDateOPW] AS [LeaveDateOPW], 
+    [ApplicantpartnerBBAView].[RelevantIndustry] AS [RelevantIndustry], 
+    [ApplicantpartnerBBAView].[Country] AS [Country]
+    FROM [dbo].[ApplicantpartnerBBAView] AS [ApplicantpartnerBBAView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrganizationGpaView" EntityType="Self.OrganizationGpaView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrganizationGpaView].[Id] AS [Id], 
+    [OrganizationGpaView].[Name] AS [Name], 
+    [OrganizationGpaView].[Email] AS [Email], 
+    [OrganizationGpaView].[OrgCVUpload] AS [OrgCVUpload], 
+    [OrganizationGpaView].[City] AS [City], 
+    [OrganizationGpaView].[DOB] AS [DOB], 
+    [OrganizationGpaView].[ReferBy] AS [ReferBy], 
+    [OrganizationGpaView].[GName] AS [GName], 
+    [OrganizationGpaView].[GPA] AS [GPA], 
+    [OrganizationGpaView].[University] AS [University], 
+    [OrganizationGpaView].[MajorSubject] AS [MajorSubject], 
+    [OrganizationGpaView].[OtherSubject] AS [OtherSubject], 
+    [OrganizationGpaView].[ExpStatus] AS [ExpStatus], 
+    [OrganizationGpaView].[NOYMExperience] AS [NOYMExperience], 
+    [OrganizationGpaView].[OrgName] AS [OrgName], 
+    [OrganizationGpaView].[EducationBoard] AS [EducationBoard]
+    FROM [dbo].[OrganizationGpaView] AS [OrganizationGpaView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrganizationQualView" EntityType="Self.OrganizationQualView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrganizationQualView].[Id] AS [Id], 
+    [OrganizationQualView].[Name] AS [Name], 
+    [OrganizationQualView].[Email] AS [Email], 
+    [OrganizationQualView].[OrgCVUpload] AS [OrgCVUpload], 
+    [OrganizationQualView].[City] AS [City], 
+    [OrganizationQualView].[DOB] AS [DOB], 
+    [OrganizationQualView].[ReferBy] AS [ReferBy], 
+    [OrganizationQualView].[QName] AS [QName], 
+    [OrganizationQualView].[QStatus] AS [QStatus], 
+    [OrganizationQualView].[DOQ] AS [DOQ], 
+    [OrganizationQualView].[NOPL] AS [NOPL], 
+    [OrganizationQualView].[ExpStatus] AS [ExpStatus], 
+    [OrganizationQualView].[NOYMExperience] AS [NOYMExperience], 
+    [OrganizationQualView].[OrgName] AS [OrgName], 
+    [OrganizationQualView].[EducationBoard] AS [EducationBoard]
+    FROM [dbo].[OrganizationQualView] AS [OrganizationQualView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PartnersGpaView" EntityType="Self.PartnersGpaView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PartnersGpaView].[Id] AS [Id], 
+    [PartnersGpaView].[Name] AS [Name], 
+    [PartnersGpaView].[Email] AS [Email], 
+    [PartnersGpaView].[City] AS [City], 
+    [PartnersGpaView].[PrtCVUpload] AS [PrtCVUpload], 
+    [PartnersGpaView].[DOB] AS [DOB], 
+    [PartnersGpaView].[ReferBy] AS [ReferBy], 
+    [PartnersGpaView].[GName] AS [GName], 
+    [PartnersGpaView].[GStatus] AS [GStatus], 
+    [PartnersGpaView].[FirmName] AS [FirmName], 
+    [PartnersGpaView].[ExpCity] AS [ExpCity], 
+    [PartnersGpaView].[JoinDate] AS [JoinDate], 
+    [PartnersGpaView].[LeaveDateOPW] AS [LeaveDateOPW], 
+    [PartnersGpaView].[Industry] AS [Industry], 
+    [PartnersGpaView].[TotalExp] AS [TotalExp], 
+    [PartnersGpaView].[Experties] AS [Experties]
+    FROM [dbo].[PartnersGpaView] AS [PartnersGpaView]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="PartnersQualView" EntityType="Self.PartnersQualView" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PartnersQualView].[Id] AS [Id], 
+    [PartnersQualView].[Name] AS [Name], 
+    [PartnersQualView].[Email] AS [Email], 
+    [PartnersQualView].[City] AS [City], 
+    [PartnersQualView].[PrtCVUpload] AS [PrtCVUpload], 
+    [PartnersQualView].[DOB] AS [DOB], 
+    [PartnersQualView].[ReferBy] AS [ReferBy], 
+    [PartnersQualView].[QName] AS [QName], 
+    [PartnersQualView].[QStatus] AS [QStatus], 
+    [PartnersQualView].[DOQ] AS [DOQ], 
+    [PartnersQualView].[NOPL] AS [NOPL], 
+    [PartnersQualView].[FirmName] AS [FirmName], 
+    [PartnersQualView].[ExpCity] AS [ExpCity], 
+    [PartnersQualView].[JoinDate] AS [JoinDate], 
+    [PartnersQualView].[LeaveDateOPW] AS [LeaveDateOPW], 
+    [PartnersQualView].[Experties] AS [Experties], 
+    [PartnersQualView].[TotalExp] AS [TotalExp], 
+    [PartnersQualView].[Industry] AS [Industry]
+    FROM [dbo].[PartnersQualView] AS [PartnersQualView]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Admin_AdminTypes" Association="Self.FK_Admin_AdminTypes">
+      <End Role="AdminTypes" EntitySet="AdminTypes" />
+      <End Role="Admin" EntitySet="Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicantpartnerscvs_Applicants" Association="Self.FK_Applicantpartnerscvs_Applicants">
+      <End Role="Applicants" EntitySet="Applicants" />
+      <End Role="Applicantpartnerscvs" EntitySet="Applicantpartnerscvs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicants_Statuses" Association="Self.FK_Applicants_Statuses">
+      <End Role="Statuses" EntitySet="Statuses" />
+      <End Role="Applicants" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicantscv_Applicants" Association="Self.FK_Applicantscv_Applicants">
+      <End Role="Applicants" EntitySet="Applicants" />
+      <End Role="Applicantscv" EntitySet="Applicantscv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organizations_Statuses" Association="Self.FK_Organizations_Statuses">
+      <End Role="Statuses" EntitySet="Statuses" />
+      <End Role="Organizations" EntitySet="Organizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partners_Statuses" Association="Self.FK_Partners_Statuses">
+      <End Role="Statuses" EntitySet="Statuses" />
+      <End Role="Partners" EntitySet="Partners" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

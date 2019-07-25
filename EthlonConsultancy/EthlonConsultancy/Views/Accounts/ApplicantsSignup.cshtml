@@ -1,0 +1,215 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html class="fixed">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+    <title>Applicants | Signup</title>
+    <meta name="keywords" content="Ethlon Consultancy" />
+    <meta name="description" content="Ethlon Consultancy">
+    <meta name="author" content="">
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="icon">
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="apple-touch-icon">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="/Admin/http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/Admin/assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/skins/default.css" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/theme-custom.css">
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <!-- Head Libs -->
+    <script src="/Admin/assets/vendor/modernizr/modernizr.js"></script>
+    <style>
+        .body-sign .panel-sign .panel-title-sign .title {
+            background-color: #f67d48;
+        }
+
+        .body-sign .panel-sign .panel-body {
+            border-top-color: #f67d48;
+        }
+
+        .btnsubmit {
+            background-color: #f67d48;
+            color: white;
+        }
+
+
+        body {
+            background-image: url(/Admin/assets/images/Consulting.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- start: page -->
+    <section class="body-sign">
+        <div class="center-sign">
+            <a href="@Url.Action("Landing","Home")" class="logo pull-left">
+                <img src="~/Admin/assets/images/ethlon-08.png" height="210" alt="Ethlon Consultancy" class="imglogo"/>
+                <img src="~/Admin/assets/images/ethlon-08.png" alt="Ethlon Consultancy" height="70" class="imgformlogo" style="display:none;"/>
+            </a>
+@using (Html.BeginForm("ApplicantsSignup", "Accounts", FormMethod.Post))
+{
+
+    <div class="container stepdiv">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h2 style="color:white;margin-top:-20px;margin-left:30px;">Are You?</h2>
+                <div class="btn-group" data-toggle="buttons" style="margin-left:40px;margin-top:20px;">
+                    <label class="btn btn-raised ripple-effect btn-default" style="height:100px;" id="option1">
+                        <input type="radio" name="type" value="Experienced Professional"> <p style="margin-top:20px;font-size:18px;">Experienced Professional / Fresh</p><p style="font-size:13px;">(Experience more than 1 year)</p>
+                    </label>
+                    @*<label class="btn btn-raised ripple-effect btn-default" style="height:100px;" id="option2">
+                        <input type="radio" name="type" value="Fresh Candidates"> <p style="margin-top:30px;font-size:18px;">Fresh Candidate</p>
+                    </label>*@
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <div class="formdiv" style="display:none;">
+        <div class="panel panel-sign">
+            <div class="panel-title-sign mt-xl text-right">
+                <h2 class="title text-uppercase text-bold m-none"><i class="fa fa-user mr-xs"></i>Applicants Sign Up</h2>
+            </div>
+            <div class="panel-body">
+                <div class="form-group mb-lg">
+                    <label>Name</label>
+                    <input name="name" type="text" class="form-control input-lg" required />
+                </div>
+
+                <div class="form-group mb-none">
+                    <div class="row">
+                        <div class="col-sm-6 mb-lg">
+                            <label>Country</label>
+                            <input name="country" type="text" class="form-control input-lg" required />
+                        </div>
+                        <div class="col-sm-6 mb-lg">
+                            <label>City</label>
+                            <input name="city" type="text" class="form-control input-lg" required />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mb-lg">
+                    <label>University/College Name</label>
+                    <input name="universityname" type="text" class="form-control input-lg" required />
+                </div>
+
+                <div class="form-group mb-lg">
+                    <label>Firm Name</label>
+                    <input name="firmname" type="text" class="form-control input-lg" required />
+                </div>
+
+                <div class="form-group mb-lg">
+                    <label>Email</label>
+                    <input name="email" type="email" class="form-control input-lg" required />
+                </div>
+
+                <div class="form-group mb-lg">
+                    <label>Password</label>
+                    <input name="password" type="password" class="form-control input-lg" required />
+                </div>
+
+
+                <input name="statusid" type="hidden" class="form-control input-lg" />
+
+
+                <div class="row">
+                    <div class="col-sm-8">
+                        <div class="">
+
+                            <label>Already have account? <a href="@Url.Action("ApplicantsLogin","Accounts")">Login</a></label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 text-right">
+                        <button type="submit" class="btn btnsubmit">Sign Up</button>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+}
+    
+        </div>
+    </section>
+    <!-- end: page -->
+    <!-- Vendor -->
+    <script src="/Admin/assets/vendor/jquery/jquery.js"></script>
+    <script src="/Admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="/Admin/assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="/Admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="/Admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/Admin/assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="/Admin/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="/Admin/assets/javascripts/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="/Admin/assets/javascripts/theme.custom.js"></script>
+    <script src="~/scripts/Jqueryui.min.js"></script>
+    <!-- Theme Initialization Files -->
+    <script src="/Admin/assets/javascripts/theme.init.js"></script>
+    <script src="~/scripts/toastr.min.js"></script>
+    <script>
+        $('#option1').click(function (e) {
+            e.preventDefault()
+            var formdiv = $(".formdiv");
+            $(".imglogo").fadeOut(200);
+            $('.stepdiv').fadeOut(200, function () {
+                $(formdiv).fadeIn(200);
+                $(".imgformlogo").fadeIn();
+            });
+
+        });
+        $('#option2').click(function (e) {
+            e.preventDefault()
+            var formdiv = $(".formdiv");
+            $(".imglogo").fadeOut(200);
+            $('.stepdiv').fadeOut(200, function () {
+                $(formdiv).fadeIn(200);
+                $(".imgformlogo").fadeIn();
+            });
+
+        })
+
+        $(function () {
+            var a = '@TempData["Checkmail"]';
+            if (a != '')
+                toastr.error("", a);
+            //alert("ab" + a)
+
+        });
+    </script>
+</body>
+</html>
+

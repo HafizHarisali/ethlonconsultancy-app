@@ -1,0 +1,66 @@
+Controller Code:
+ public ActionResult Index()
+        {
+            var db = new SchoolManagementEntities();
+            var schools = db.Schools.ToList();
+            ViewBag.Schools = schools;
+
+            var usertypes = db.Usertypes.ToList();
+            ViewBag.Usertypes = usertypes;
+            return View();
+        }
+
+View Code:
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>@Html.Label("Usertype")
+
+                <select name="usertypeid">
+                    @foreach (var item in ViewBag.Usertypes)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Name")</td>
+            <td>@Html.TextBox("name")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Email")</td>
+            <td>@Html.TextBox("email")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Address")</td>
+            <td>@Html.TextBox("address")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.Label("Password")</td>
+            <td>@Html.TextBox("password")</td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.Label("School")
+
+            <select name="shoolid">
+                @foreach (var item in ViewBag.Schools)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </td>
+    </tr>
+
+        <tr>
+            <td><input type="button" name="button" value="Register" /></td>
+        </tr>
+    </table>
+}

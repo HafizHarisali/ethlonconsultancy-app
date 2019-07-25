@@ -1,0 +1,94 @@
+﻿@model IEnumerable<EthlonConsultancy.Partner>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-lg-4"><h2>Partners</h2></div>
+    <div class="col-lg-4"><p style="margin-left:200px;margin-top:25px;">Search By Email</p></div>
+    <div class="col-lg-4 mt-lg">
+        
+        @using (Html.BeginForm("Index", "Partners", FormMethod.Get))
+        {
+            <table>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="search" name="search" placeholder="Search..." value="" class="form-control" />
+
+                    </td>
+                    <td>
+                        <button type="submit" class="searchButton form-control">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </td>
+
+                </tr>
+            </table>
+        }
+    </div>
+</div>
+
+<table class="table mt-lg">
+    <tr style="background-color:#d41e48;color:white;">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirmName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            Login Status
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirmName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status.Name)
+        </td>
+        <td>
+            <a href="@Url.Action("Edit","Partners",new {id=item.Id })"><i class="fa fa-edit fa-fw"></i></a> |
+            @if (Session["managertype"] == null)
+            {
+                <a href="@Url.Action("Delete","Partners",new {id=item.Id })"><i class="fa fa-trash-o fa-fw"></i></a>
+            }
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,296 @@
+﻿
+@model EthlonConsultancy.Partnerscv1
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ethlon Consultancy | Partners CV</title>
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        function getselectitem(ddl) {
+            var ddl = ddl.children;
+
+            for (var i = 0; i < ddl.length; i++) {
+                if (ddl[i].selected == true) {
+                    return ddl[i].innerText;
+                }
+            }
+        }
+    </script>
+    <script>
+        window.onload = function()
+        {
+            document.getElementById('gradstatus').value = '';
+            document.getElementById('qualstatuscol').style.display = 'block';
+            document.getElementById('doqcol').style.display = 'block';
+            document.getElementById('noplcol').style.display = 'none';
+
+            document.getElementById('firmnamecol').style.display = 'block';
+            document.getElementById('citycol').style.display = 'block';
+            document.getElementById('jdatecol').style.display = 'block';
+            document.getElementById('ldatecol').style.display = 'block';
+            document.getElementById('gradstatuscol').style.display = 'none';
+        }
+
+        function Qual_On_Change()
+        {
+            var qual = document.getElementById('qual');
+            var qualstat = document.getElementById('qualstatus');
+            if(qual.value=="CA" || qual.value=="ACCA")
+            {
+
+                document.getElementById('noplcol').style.display = 'none';
+                document.getElementById('gradstatuscol').style.display = 'none';
+                document.getElementById('qualstatuscol').style.display = 'block';
+                document.getElementById('doqcol').style.display = 'block';
+                document.getElementById('gradstatus').value = '';
+
+                if(qualstat.value=="Yes")
+                {
+                    document.getElementById('noplcol').style.display = 'none';
+                    document.getElementById('doqcol').style.display = 'block';
+                }
+
+                else if(qualstat.value=="No")
+                {
+                    document.getElementById('doqcol').style.display = 'none';
+                    document.getElementById('noplcol').style.display = 'block';
+                }
+
+            }
+            else if (qual.value == "Graduation")
+            {
+                document.getElementById('qualstatus').value = '';
+                document.getElementById('noplcol').style.display = 'none';
+                document.getElementById('doqcol').style.display = 'none';
+                document.getElementById('qualstatuscol').style.display = 'none';
+
+                document.getElementById('gradstatuscol').style.display = 'block';
+
+            }
+        }
+
+        function QStatus_On_Change()
+        {
+            var qstatus = document.getElementById('qualstatus');
+            if(qstatus.value=="Yes")
+            {
+                document.getElementById('noplcol').style.display = 'none';
+                document.getElementById('doqcol').style.display = 'block';
+            }
+
+            else if(qstatus.value=="No"){
+                document.getElementById('doqcol').style.display = 'none';
+                document.getElementById('noplcol').style.display = 'block';
+            }
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <div class="container">
+
+        @using (Html.BeginForm("EditPcacvs", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.ValidationSummary(true, "", new { htmlAttributes = new { @class = "form-control"} })
+            @Html.HiddenFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @name = "id" } })
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <label>Name</label>
+                            @*<input type="text" id="postname" name="name" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @name ="Name" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+                        </div>
+                        <div class="col-md-3">
+                            <label>Email</label>
+                            @*<input type="email" id="postemail" name="email" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @name="email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <label>Upload CV</label>
+                            <input type="file" name="file" id="postfile" value="" class="form-control" required />
+
+                        </div>
+                    </div>
+                </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <label>City</label>
+                            @*<input type="text" id="postcity" name="city" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", @name = "city" } })
+                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <label>Age</label>
+                            @*<input type="number" id="postdob" name="dob" min="18" max="100" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", @name = "dob" } })
+                            @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3">
+                            <label>Refer By</label>
+                            @*<input type="text" id="postreferby" name="referby" value="" class="form-control" required />*@
+                            @Html.EditorFor(model => model.ReferBy, new { htmlAttributes = new { @class = "form-control", @name = "referby" } })
+                            @Html.ValidationMessageFor(model => model.ReferBy, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <label>Qualification</label>
+                            <select name="qualification" class="form-control" id="qual" onchange="Qual_On_Change();">
+                                <option value="CA">CA</option>
+                                <option value="ACCA">ACCA</option>
+                                <option value="Graduation">Graduation(BA/B.COM)</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" id="qualstatuscol">
+                            <label>Qualification Status</label>
+                            <select name="qualifystatus" class="form-control" id="qualstatus" onchange="QStatus_On_Change();">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" id="gradstatuscol">
+                            <label>Graduation Status</label>
+                            <select name="qualifystatus" class="form-control" id="gradstatus">
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3" id="doqcol">
+                            <label>Date Of Qualification</label>
+                            <input type="date" id="postdoq" name="doq" value="" class="form-control" />
+                        </div>
+                        <div class="col-md-3" id="noplcol">
+                            <label>No Of Papers Left</label>
+                            <input type="number" id="postnopl" name="nopl" value="" class="form-control" />
+                        </div>
+
+                    </div>
+                </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-3" id="doqcol">
+                            <label>Industry </label>
+                            <select class="form-control" name="industry">
+                                <option value="FS">FS</option>
+                                <option value="Non FS">Non FS</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <h3 style="margin-left:20px;">Experience</h3>
+                        <hr style="width:800px;" />
+                        <div class="col-md-3" id="firmnamecol">
+                            <label>Training Firm Name</label>
+                            <select name="firmname" class="form-control" id="firmname">
+                                <option value="PWC">PWC</option>
+                                <option value="KPMG">KPMG</option>
+                                <option value="EY">EY</option>
+                                <option value="Deloitte">Deloitte</option>
+                                <option value="GT">GT</option>
+                                <option value="BDO">BDO</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3" id="citycol">
+                            <label>Which City</label>
+                            @*<input type="text" id="postcityexp" name="expcity" value="" class="form-control" />*@
+                            @Html.EditorFor(model => model.ExpCity, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ExpCity, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3" id="citycol">
+                            <label>Total Professional Experience</label>
+                            <select class="form-control" name="totalexperience">
+                                <option value="Half Year">Half Year</option>
+                                <option value="1 Year">1 Year</option>
+                                <option value="2 Year">2 Year</option>
+                                <option value="3 Year">3 Year</option>
+                                <option value="4 Year">4 Year</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <div class="col-md-3" id="jdatecol">
+                            <label>Current Organization Name</label>
+                            @*<input type="text" id="postjd" name="jdate" value="" class="form-control" />*@
+                            @Html.EditorFor(model => model.JoinDate, new { htmlAttributes = new { @class = "form-control", @name="joindate" } })
+                            @Html.ValidationMessageFor(model => model.JoinDate, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="col-md-3" id="ldatecol">
+                            <label>Date Of Joining</label>
+                            <input type="date" id="postld" name="ldate" value="" class="form-control" />
+                        </div>
+                        <div class="col-md-3" id="ldatecol">
+                            <label>Experties</label>
+                            <select class="form-control" name="experties">
+                                <option value="Advisory FAS">Advisory FAS</option>
+                                <option value="Internal Audit">Internal Audit</option>
+                                <option value="Risk Advisory">Risk Advisory</option>
+                                <option value="External Audit">External Audit</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <hr style="width:800px;" />
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-info">Save</button>
+                        </div>
+                    </div>
+                </div>
+           
+                }
+            
+
+
+
+    </div>
+    <script src="~/scripts/toastr.min.js"></script>
+    <script>
+        $(function () {
+            var a = '@TempData["successmessage"]';
+            if (a != '')
+                toastr.success("", a);
+            //alert("ab" + a)
+            
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+

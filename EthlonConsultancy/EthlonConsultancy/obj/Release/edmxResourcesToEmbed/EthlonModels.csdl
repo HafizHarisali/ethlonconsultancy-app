@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EthlondbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AdminTypeId" Type="Int32" />
+    <NavigationProperty Name="AdminType" Relationship="Self.FK_Admin_AdminTypes" FromRole="Admin" ToRole="AdminTypes" />
+  </EntityType>
+  <EntityType Name="AdminType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Admins" Relationship="Self.FK_Admin_AdminTypes" FromRole="AdminTypes" ToRole="Admin" />
+  </EntityType>
+  <EntityType Name="Organization">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CoordinatorName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CoordinatorPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IndustryNuture" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Wallet" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="StatusId" Type="Int32" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_Organizations_Statuses" FromRole="Organizations" ToRole="Statuses" />
+  </EntityType>
+  <EntityType Name="Organizationscv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrgCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="QStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EducationBoard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="University" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MajorSubject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OtherSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOYMExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrgName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Partner">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StatusId" Type="Int32" />
+    <NavigationProperty Name="Status" Relationship="Self.FK_Partners_Statuses" FromRole="Partners" ToRole="Statuses" />
+  </EntityType>
+  <EntityType Name="Partnerscv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrtCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="QName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="TotalExp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Experties" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDateOPW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PostJob">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrgName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="JobTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="CurrentDate" Type="DateTime" Precision="0" />
+    <Property Name="Deadline" Type="DateTime" Precision="0" />
+    <Property Name="QualRequirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Organizations" Relationship="Self.FK_Organizations_Statuses" FromRole="Statuses" ToRole="Organizations" />
+    <NavigationProperty Name="Partners" Relationship="Self.FK_Partners_Statuses" FromRole="Statuses" ToRole="Partners" />
+    <NavigationProperty Name="Applicants" Relationship="EthlondbModel.FK_Applicants_Statuses" FromRole="Status" ToRole="Applicant" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="OrganizationGpaView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrgCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="University" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MajorSubject" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="OtherSubject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOYMExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrgName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EducationBoard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OrganizationQualView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="OrgCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="QStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOYMExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrgName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EducationBoard" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PartnersGpaView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrtCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ExpCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDateOPW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalExp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Experties" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PartnersQualView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrtCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="QName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="ExpCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDateOPW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Experties" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalExp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_Admin_AdminTypes">
+    <End Role="AdminTypes" Type="Self.AdminType" Multiplicity="0..1" />
+    <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AdminTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="AdminTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Organizations_Statuses">
+    <End Role="Statuses" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Organizations" Type="Self.Organization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Organizations">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partners_Statuses">
+    <End Role="Statuses" Type="Self.Status" Multiplicity="0..1" />
+    <End Role="Partners" Type="Self.Partner" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Statuses">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Partners">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EthlonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="AdminTypes" EntityType="Self.AdminType" />
+    <EntitySet Name="Organizations" EntityType="Self.Organization" />
+    <EntitySet Name="Organizationscvs" EntityType="Self.Organizationscv" />
+    <EntitySet Name="Partners" EntityType="Self.Partner" />
+    <EntitySet Name="Partnerscvs" EntityType="Self.Partnerscv" />
+    <EntitySet Name="PostJobs" EntityType="Self.PostJob" />
+    <EntitySet Name="Statuses" EntityType="Self.Status" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="OrganizationGpaViews" EntityType="Self.OrganizationGpaView" />
+    <EntitySet Name="OrganizationQualViews" EntityType="Self.OrganizationQualView" />
+    <EntitySet Name="PartnersGpaViews" EntityType="Self.PartnersGpaView" />
+    <EntitySet Name="PartnersQualViews" EntityType="Self.PartnersQualView" />
+    <AssociationSet Name="FK_Admin_AdminTypes" Association="Self.FK_Admin_AdminTypes">
+      <End Role="AdminTypes" EntitySet="AdminTypes" />
+      <End Role="Admin" EntitySet="Admins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Organizations_Statuses" Association="Self.FK_Organizations_Statuses">
+      <End Role="Statuses" EntitySet="Statuses" />
+      <End Role="Organizations" EntitySet="Organizations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partners_Statuses" Association="Self.FK_Partners_Statuses">
+      <End Role="Statuses" EntitySet="Statuses" />
+      <End Role="Partners" EntitySet="Partners" />
+    </AssociationSet>
+    <EntitySet Name="Applicantscvs" EntityType="EthlondbModel.Applicantscv" />
+    <EntitySet Name="ApplicantBBAViews" EntityType="EthlondbModel.ApplicantBBAView" />
+    <EntitySet Name="ApplicantCAViews" EntityType="EthlondbModel.ApplicantCAView" />
+    <EntitySet Name="EmployeLogos" EntityType="EthlondbModel.EmployeLogo" />
+    <EntitySet Name="ApplicantpartnerACCAViews" EntityType="EthlondbModel.ApplicantpartnerACCAView" />
+    <EntitySet Name="ApplicantpartnerBBAViews" EntityType="EthlondbModel.ApplicantpartnerBBAView" />
+    <EntitySet Name="Applicantpartnerscvs" EntityType="EthlondbModel.Applicantpartnerscv" />
+    <EntitySet Name="Applicants" EntityType="EthlondbModel.Applicant" />
+    <AssociationSet Name="FK_Applicantpartnerscvs_Applicants" Association="EthlondbModel.FK_Applicantpartnerscvs_Applicants">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="Applicantpartnerscv" EntitySet="Applicantpartnerscvs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicants_Statuses" Association="EthlondbModel.FK_Applicants_Statuses">
+      <End Role="Status" EntitySet="Statuses" />
+      <End Role="Applicant" EntitySet="Applicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Applicantscv_Applicants" Association="EthlondbModel.FK_Applicantscv_Applicants">
+      <End Role="Applicant" EntitySet="Applicants" />
+      <End Role="Applicantscv" EntitySet="Applicantscvs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Applicantscv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="Contactno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Schoolname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Collegename" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AcadQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdvAcadQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Qualname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Qualstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="University" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MajorSubjects" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OtherSubjects" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Extracuri" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Achivements" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ExpStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOYExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrgName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Agree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UploadCV" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Applicantid" Type="Int32" />
+    <NavigationProperty Name="Applicant" Relationship="EthlondbModel.FK_Applicantscv_Applicants" FromRole="Applicantscv" ToRole="Applicant" />
+  </EntityType>
+  <EntityType Name="ApplicantBBAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Contactno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Schoolname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Collegename" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AcadQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdvAcadQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="GPA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="University" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MajorSubjects" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OtherSubjects" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Extracuri" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Achivements" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ExpStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOYExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrgName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Agree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UploadCV" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Applicantid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ApplicantCAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="350" FixedLength="false" Unicode="false" />
+    <Property Name="Contactno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Schoolname" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Collegename" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AcadQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AdvAcadQual" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Qualname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Qualstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Extracuri" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Achivements" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ExpStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NOYExperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrgName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Agree" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UploadCV" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Applicantid" Type="Int32" />
+  </EntityType>
+  <EntityType Name="EmployeLogo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ApplicantpartnerACCAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalExp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Experties" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDateOPW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RelevantIndustry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ApplicantpartnerBBAView">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalExp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Experties" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDateOPW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RelevantIndustry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Applicantpartnerscv">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="AppCVUpload" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DOB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ReferBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="QStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DOQ" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Industry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NOPL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="GStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TotalExp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Experties" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ExpCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RelevantIndustry" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="JoinDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="LeaveDateOPW" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Applicantid" Type="Int32" />
+    <NavigationProperty Name="Applicant" Relationship="EthlondbModel.FK_Applicantpartnerscvs_Applicants" FromRole="Applicantpartnerscv" ToRole="Applicant" />
+  </EntityType>
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UniversityName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="FirmName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Type" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="Statusid" Type="Int32" />
+    <NavigationProperty Name="Applicantpartnerscvs" Relationship="EthlondbModel.FK_Applicantpartnerscvs_Applicants" FromRole="Applicant" ToRole="Applicantpartnerscv" />
+    <NavigationProperty Name="Status" Relationship="EthlondbModel.FK_Applicants_Statuses" FromRole="Applicant" ToRole="Status" />
+    <NavigationProperty Name="Applicantscvs" Relationship="EthlondbModel.FK_Applicantscv_Applicants" FromRole="Applicant" ToRole="Applicantscv" />
+  </EntityType>
+  <Association Name="FK_Applicantpartnerscvs_Applicants">
+    <End Type="EthlondbModel.Applicant" Role="Applicant" Multiplicity="0..1" />
+    <End Type="EthlondbModel.Applicantpartnerscv" Role="Applicantpartnerscv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applicantpartnerscv">
+        <PropertyRef Name="Applicantid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicants_Statuses">
+    <End Type="EthlondbModel.Status" Role="Status" Multiplicity="0..1" />
+    <End Type="EthlondbModel.Applicant" Role="Applicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applicant">
+        <PropertyRef Name="Statusid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Applicantscv_Applicants">
+    <End Type="EthlondbModel.Applicant" Role="Applicant" Multiplicity="0..1" />
+    <End Type="EthlondbModel.Applicantscv" Role="Applicantscv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicant">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Applicantscv">
+        <PropertyRef Name="Applicantid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

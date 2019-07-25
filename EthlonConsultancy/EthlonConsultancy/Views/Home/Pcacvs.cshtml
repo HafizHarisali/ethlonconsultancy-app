@@ -1,0 +1,160 @@
+﻿
+@{
+    ViewBag.Title = "Pcacvs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="body">
+
+    <!-- start: header -->
+    <!-- end: header -->
+    <!-- start: sidebar -->
+    <!-- end: sidebar -->
+
+    <section role="main" class="">
+
+
+        <!-- start: page -->
+
+
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="/Admin/#" class="fa fa-caret-down"></a>
+
+                </div>
+
+                <h3 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color:black;">Partners CA/ACCA CVs Submitted</h3>
+            </header>
+            <div class="panel-body">
+                
+                    <table class="js-dynamitable table table-bordered table-striped mb-none" id="datatable-tabletools">
+
+                        <!-- table heading -->
+                        <thead>
+
+                            <tr>
+                                <th>Serial #</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>City</th>
+                                <th>Age</th>
+                                <th>ReferBy</th>
+                                <th>Qualification</th>
+                                <th>Qualification Status</th>
+                                <th>Industry</th>
+                                <th>Date Of Qualification / No. Of Papers Left</th>
+                                <th>Training Firm Name</th>
+                                <th>Exp City</th>
+                                <th>Professional Experience</th>
+                                <th>Experties</th>
+                                
+                                <th>Current Org Name</th>
+                                <th>Join Date</th>
+                                <th style="width:400px;">Actions<span style="color:#d41e48;">..........................</span></th>
+                            </tr>
+                            <tr id="sorting">
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:80px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value=""style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value=""></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                                <th><input class="js-filter  form-control" type="date" value=""></th>
+                                <th></th>
+
+                            </tr>
+                        </thead>
+
+                        <!-- table body -->
+                        <tbody>
+                            @{
+                                int count1 = 0;
+
+
+                                foreach (var item in ViewBag.pcacv)
+                                {
+
+                                    if (item.QName != null && item.QStatus != null)
+                                    {
+                                        count1 = count1 + 1;
+                                        <tr class="odd gradeX">
+
+                                            <td>@count1</td>
+
+                                            <td>@item.Name</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.City</td>
+                                            <td>@item.DOB</td>
+                                            <td>@item.ReferBy</td>
+                                            <td>@item.QName</td>
+                                            <td>@item.QStatus</td>
+                                            <td>@item.Industry</td>
+                                            @if (item.QStatus == "Yes")
+                                            {
+                                                <td>@item.DOQ</td>
+                                            }
+                                            else
+                                            {
+                                                <td>@item.NOPL</td>
+                                            }
+
+                                            <td>@item.FirmName</td>
+                                            <td>@item.ExpCity</td>
+                                            <td>@item.TotalExp</td>
+                                            <td>@item.Experties</td>
+                                            <td style="width:80px;">@item.JoinDate</td>
+                                            <td>@item.LeaveDateOPW</td>
+                                            <td>
+                                                <a href="@Url.Action("EditPcacvs","Home", new { id=item.Id })" class="btn btn-primary">Edit</a> |
+                                                <a href="@Url.Action("DeletePcacvs","Home", new { id=item.Id })" class="btn btn-danger">Delete</a>
+                                            </td>
+
+                                        </tr>
+                                    }
+
+                                }
+                            }
+                        </tbody>
+                    </table>
+
+                    <!-- /.table-responsive -->
+               
+
+            </div>
+            <!-- /.panel-body -->
+        </section>
+    </section>
+</section>
+
+
+<script src="~/scripts/jquery-3.3.1.min.js"></script>
+<!-- dynamitable -->
+<script src="~/scripts/dynamitable.jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+
+</script>
+

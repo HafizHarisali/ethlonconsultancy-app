@@ -1,0 +1,95 @@
+Entities:
+* Lands
+    Id
+    Address
+    Cost of land when purchased
+    Cost of land at present
+    Area of land
+    date of purchase
+    location
+    nearby territory
+
+* Land Status
+    Id
+    Applied for building permit(yes/no).
+    building permit recieved(yes/no).
+    building constructed(yes/no).
+    occupancy permit applied(yes/no).
+    occupancy permit recieved(yes/no).
+    sold(yes/no).
+    date of recieving building permit.
+    LandId
+    
+* Buildings(Each land have its own buliding)
+    Id.
+    Name.
+    Building type.
+    Floors to be constructed.
+    Rooms/houses/shops (according to building type) to be constructed in each floor.
+    Date of building constructed.
+    LandId
+ 
+* Buildings Status
+    Id.
+    completely constructed(yes/no).
+    applied for occupancy permit(yes/no).
+    Recieved occupancy permit(yes/no).
+    sold completely(yes/no).
+    date of recieving occupancy permit.
+    BuildingId
+
+* Floors(In each building)
+    Id
+    Floornumber
+    BuildingId
+
+* Rooms/Shops/Houses(In each Floor)
+    Id.
+    Buildingtype
+    Area/sq.ft.
+    FloorId.
+    
+*Prices
+   Id
+   Price
+   LandId
+
+*Payments
+   Id
+   Paymenttype
+   Room/House/ShopId
+
+*Customers
+   Id
+   Name
+   Address
+
+*Registrations
+   Id
+   Charges
+   
+*Costs
+   Id
+   Cost
+   Room/House/ShopId
+  
+*Sales
+   Id
+   Room/House/ShopId
+   CustomerId
+   CostId
+   Paymenttype
+   Totalpayment
+   Amountpaid
+   Amountdue
+
+*SalesStatus
+   Id
+   CustomerId
+   SalesId
+   Paymentstatus(pending/done)
+   
+    
+   
+   
+   

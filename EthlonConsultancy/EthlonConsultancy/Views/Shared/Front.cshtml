@@ -1,0 +1,241 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html class="fixed">
+<head>
+
+    <!-- Basic -->
+    <meta charset="UTF-8">
+
+    <title>Ethlon Consultancy</title>
+    <meta name="keywords" content="Ethlon Consultancy" />
+    <meta name="description" content="Ethlon Consultancy">
+    <meta name="author" content="">
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="icon">
+    <link href="~/Admin/assets/images/ethlon-08.png" rel="apple-touch-icon">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/Admin/assets/vendor/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/magnific-popup/magnific-popup.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/bootstrap-datepicker/css/datepicker3.css" />
+
+    <!-- Specific Page Vendor CSS -->
+    <link rel="stylesheet" href="/Admin/assets/vendor/select2/select2.css" />
+    <link rel="stylesheet" href="/Admin/assets/vendor/jquery-datatables-bs3/assets/css/datatables.css" />
+
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/theme.css" />
+
+    <!-- Skin CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/skins/default.css" />
+
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="/Admin/assets/stylesheets/theme-custom.css">
+
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <!-- Head Libs -->
+    <script src="/Admin/assets/vendor/modernizr/modernizr.js"></script>
+    <style>
+        table.dataTable thead tr {
+  background-color:#f67e48;
+  
+}
+
+        table.dataTable thead tr th{
+            color:white;
+        }
+        html .pagination > li.active a{
+            background-color:#f67e48;
+        }
+
+        html .pagination:hover li.active a{
+            background-color:#f67e48;
+        }
+
+        nav ul li a{color:white;}
+        nav ul{list-style-type:none}
+        nav ul li a{margin-left:30px;}
+        nav ul li{margin-top:25px;}
+        nav ul li:hover a{text-decoration:none;color:black;}
+        nav ul li ul li{margin:0;}
+        nav ul li ul li a{margin:0;}
+
+    .uploader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -330px;
+  width: 700px;
+  height: 250px;
+  border: 4px dashed #f67e48;
+}
+.uploader p{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 170px;
+  color: #000000;
+  font-family: Arial;
+}
+.uploader input{
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+}
+
+.uploadbtn{
+    height: 50px !important;
+    width: 700px !important;
+    margin-left: -3px !important;
+    margin-top: 60px !important;
+    opacity:unset !important;
+    background-color:#f67e48 !important;
+    color:white !important;
+}
+    </style>
+
+</head>
+<body>
+    <div class="row" style="background-color:#f67e48;">
+        <div class="col-md-1"></div>
+        <div class="col-md-1">
+            <a href="@Url.Action("Landing","Home")">
+            <img src="~/Home/img/ethlon-08.png" alt="Ethlon Consultancy" height="80" width="170" />
+            </a>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
+            <nav>
+                <ul class="nav-pills">
+                  
+                    @if (Session["FirmName"] != null)
+                    {
+                        <li class="dropdown">
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="#" data-toggle="dropdown" class="dropdown-toggle">Partners CVs</a>
+                            <ul class="dropdown-menu">
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("PCA", "Education")">CA/ACCA</a></li>
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("PBBA", "Education")">Graduated</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("PrtLogout", "Accounts")">Logout</a>
+                        </li>
+                    }
+                    else if (Session["OrgId"] != null)
+                    {
+                        <li class="dropdown">
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="#" data-toggle="dropdown" class="dropdown-toggle">Fresh Applicants</a>
+                            <ul class="dropdown-menu">
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("ApplicantCA", "Education")">CA/ACCA</a></li>
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("ApplicantBBA", "Education")">BBA/MBA</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="#" data-toggle="dropdown" class="dropdown-toggle">Experienced Professionals</a>
+                            <ul class="dropdown-menu">
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("ApplicantpartnersCA", "Education")">CA/ACCA</a></li>
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("ApplicantpartnersBBA", "Education")">BBA/MBA</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("PostJob", "Education")">Post Job</a>
+                        </li>
+
+                        <li class="dropdown">
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="#" data-toggle="dropdown" class="dropdown-toggle">Organization CVs</a>
+                            <ul class="dropdown-menu">
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("CA", "Education")">CA/ACCA</a></li>
+                                <li><a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("BBA", "Education")">BBA/MBA</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("OrgLogout", "Accounts")">Logout</a>
+                        </li>
+                    }
+                    else if (Session["AppId"] != null)
+                    {
+                        <li>
+                            <a style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif" href="@Url.Action("ApplicantLogout", "Accounts")">Logout</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+    @RenderBody();
+
+    <!-- Vendor -->
+    <script src="~/scripts/jquery-3.3.1.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('#datatable-tabletools').dataTable({
+            destroy:true,
+            print: false,
+            
+        });
+    });
+    </script>
+
+    <script src="/Admin/assets/vendor/jquery/jquery.js"></script>
+    <script src="/Admin/assets/vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+    <script src="/Admin/assets/vendor/bootstrap/js/bootstrap.js"></script>
+    <script src="/Admin/assets/vendor/nanoscroller/nanoscroller.js"></script>
+    <script src="/Admin/assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="/Admin/assets/vendor/magnific-popup/magnific-popup.js"></script>
+    <script src="/Admin/assets/vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+    <!-- Specific Page Vendor -->
+    <script src="/Admin/assets/vendor/select2/select2.js"></script>
+    <script src="/Admin/assets/vendor/jquery-datatables/media/js/jquery.dataTables.js"></script>
+    <script src="/Admin/assets/vendor/jquery-datatables/extras/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script src="/Admin/assets/vendor/jquery-datatables-bs3/assets/js/datatables.js"></script>
+
+    <!-- Theme Base, Components and Settings -->
+    <script src="/Admin/assets/javascripts/theme.js"></script>
+
+    <!-- Theme Custom -->
+    <script src="/Admin/assets/javascripts/theme.custom.js"></script>
+
+    <!-- Theme Initialization Files -->
+    <script src="/Admin/assets/javascripts/theme.init.js"></script>
+
+
+    <!-- Examples -->
+    <script src="/Admin/assets/javascripts/tables/examples.datatables.default.js"></script>
+    <script src="/Admin/assets/javascripts/tables/examples.datatables.row.with.details.js"></script>
+    <script src="/Admin/assets/javascripts/tables/examples.datatables.tabletools.js"></script>
+    <script src="~/scripts/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.uploader input').change(function () {
+                $('.uploader p').text(this.files.length + " file(s) selected");
+            });
+        });
+
+    </script>
+
+</body>
+</html>

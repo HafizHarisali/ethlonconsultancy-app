@@ -1,0 +1,83 @@
+﻿@model EthlonConsultancy.Organization
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Organization</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoordinatorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoordinatorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoordinatorPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoordinatorPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IndustryNuture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IndustryNuture)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Wallet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Wallet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

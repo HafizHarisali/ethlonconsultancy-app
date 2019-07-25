@@ -1,0 +1,309 @@
+﻿
+@{
+    ViewBag.Title = "Generatecv";
+    Layout = "~/Views/Shared/Front.cshtml";
+}
+
+<style>
+    * {
+        color: black;
+    }
+
+    ul {
+        list-style: none;
+    }
+
+    li {
+        margin-top: 18px;
+        
+    }
+
+    p {
+        font-size: 16px;
+    }
+    i{
+        color:#f67e48;
+        font-size:17px;
+    }
+    span{
+        margin-right:6px;
+    }
+    .btn{
+        background-color:#f67e48;
+        color:white;
+    }
+    .btn:hover{
+        color:white;
+    }
+
+</style>
+
+@foreach (var item in ViewBag.cv)
+{
+    <div class="container">
+        <div class="row mt-lg">
+            <div class="col-md-2">
+                <a href="@Url.Action("EditCV","Applicantinfo", new { id = item.Id })">
+                    <i class="fa fa-edit" style="font-size:37px;color:#f67e48;" data-toggle="popover" data-trigger="hover" data-placement="right" data-content="Edit Your CV">
+                    </i>
+                </a>
+    </div>
+     <div class="col-md-8  text-center">
+         <a href="javascript:void(0)" id="download">
+             <i class="fa fa-cloud-download-alt" data-toggle="popover" data-trigger="hover" data-content="Download Your CV" data-placement="top" style="font-size:40px;color:#f67e48;">
+             </i>
+         </a>
+     </div>
+            <div class="col-md-2 text-right">
+                <a href="@Url.Action("UploadCv","Applicantinfo", new {id = item.Id  })" class="uploadcv">
+                    <i class="fa fa-arrow-circle-right" data-toggle="popover" data-trigger="hover" data-content="Upload Your CV" data-placement="left" style="font-size:40px;color:#f67e48;"></i>
+                </a>
+            </div>
+        </div>
+        
+        </div>
+    
+    <div class="container mt-lg" style="background-color:white; padding:10px; box-shadow:2px 3px 5px 3px #808080;" id="HTMLtoPDF">
+        <div class="row">
+            <div class="col-md-6 ml-lg" align="left">
+                <h1 class="text-uppercase" style="font-size:54px; color:black;">@item.Name</h1>
+                <h3 style="color:red;">Qualified Finance Expert</h3>
+                <h5 style="line-height:22px;">
+                    Analytical and meticulous qualified accountant with proven effectiveness in preparing financial reports,
+                    budgets, financial reporting and analysis in strict compliance with IFRS and all applicable reporting standards.
+                    Well versed in all corporate accounting function including tax, law and advance corporate reporting.
+                </h5>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-4 ml-lg" align="right">
+                <ul>
+                    <li><span style="font-size:16px;"><b>Phone :</b> @item.Contactno</span> <i class="fa fa-phone"></i> </li>
+                    <li><span style="font-size:16px;"><b>Email :</b> @item.Email</span> <i class="fa fa-envelope"></i></li>
+                    <li><span style="font-size:16px;"><b>Age :</b> @item.Age</span> <i class="fa fa-calendar"></i></li>
+                    <li><span style="font-size:16px;"><b>Adress :</b> @item.Address</span> <i class="fa fa-location-arrow"></i> </li>
+                </ul>
+            </div>
+        </div>
+       
+        <hr style="width:100%; background-color:red;" />
+
+        <div class="row ml-lg">
+            <div class="col-md-8">
+                <h2 class="text-uppercase"><b style="color:red;">Expertise : </b></h2>
+                <div class="row">
+                    <div class="col-md-12 ml-lg mt-lg">
+                        <div class="btn ">Financial Reporting</div>
+                        <div class="btn ">Consolidation</div>
+                        <div class="btn ">Finance Management</div>
+                        <div class="btn ">Cost Accounting</div>
+                        <div class="btn ">Auditing</div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ml-lg mt-lg">
+                        <div class="btn ">Taxation</div>
+                        <div class="btn ">Budgeting</div>
+                        <div class="btn ">Team work</div>
+                        <div class="btn ">Networking</div>
+                        <div class="btn ">Critical thinking</div>
+                    </div>
+
+                </div>
+               
+            </div>
+
+        </div>
+
+        <hr style="width:100%; background-color:red;" />
+
+        <div class="row ml-lg">
+            <div class="col-md-6">
+                <h2 class="text-uppercase"><b style="color:red;">Experience : </b></h2>
+
+                <div class="col-md-12 ml-lg mt-lg">
+                    <ul style="list-style:circle; font-size:17px;">
+                        <li><b>Experience Years :</b>  @item.NOYExperience  </li>
+                        <li><b>Organization Name :</b>  @item.OrgName</li>
+                    </ul>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        <hr style="width:100%; background-color:red;" />
+        <div class="row ml-lg">
+            <div class="col-md-12">
+                <h2 class="text-uppercase"><b style="color:red;">Education</b></h2>
+                <span></span>
+                <div class="col-md-12 ml-lg mt-lg">
+                    <ul style="list-style:circle; font-size:17px;">
+                        <li><b>School Name :</b> @item.Schoolname</li>
+                        <li><b>College Name :</b> @item.Collegename</li>
+                        <li><b>Qualification :</b> @item.AcadQual</li>
+                        <li><b>Advance Academic Qualification :</b> @item.AdvAcadQual</li>
+                    </ul>
+                   
+                </div>
+
+            </div>
+
+        </div>
+        <hr style="width:100%; background-color:red;" />
+        <div class="row ml-lg">
+            <div class="col-md-12">
+                <h2 class="text-uppercase"><b style="color:red;">Higher Education</b></h2>
+                <span></span>
+                <div class="col-md-12 ml-lg mt-lg">
+                    <ul style="list-style:circle; font-size:17px;">
+                        @if (item.Qualname == "CA(CAF)" || item.Qualname == "ACCA")
+                        {
+                            <li><b>Professional Qualification :</b> @item.Qualname</li>
+                            <li><b>Qualification Status :</b> @item.Qualstatus</li>
+                            if (item.DOQ != "")
+                            {
+                                <li><b>Date Of Qualification :</b> @item.DOQ</li>
+                            }
+                            else
+                            {
+                                <li><b>Number Of Papers Left :</b> @item.NOPL</li>
+                            }
+                        }
+                        else
+                        {
+                            <li><b>Professional Qualification :</b> @item.GName</li>
+                            <li><b>GPA :</b> @item.GPA</li>
+                            <li><b>University :</b> @item.University</li>
+                            <li><b>Major Subjects :</b> @item.MajorSubjects</li>
+                            <li><b>Other Subjects :</b> @item.OtherSubjects</li>
+                        }
+                    </ul>
+                   
+                </div>
+
+            </div>
+
+        </div>
+        <hr style="width:100%; background-color:red;" />
+        <div class="row ml-lg">
+            <div class="col-md-12">
+                <h2 class="text-uppercase"><b style="color:red;">Achievements and Others</b></h2>
+                <span></span>
+                <div class="col-md-12 ml-lg mt-lg mb-lg">
+                    <ul style="list-style:circle; font-size:17px;">
+                        <li><b>Extra Curricular Activities :</b> @item.Extracuri</li>
+                        <li><b>Achievements :</b> @item.Achivements</li>
+                    </ul>
+                    
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+}
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">For upload your CV, Please read it carefully.</h4>
+            </div>
+            <div class="modal-body">
+                <p>Step 1: First Download Your CV.</p>
+                <p>Step 2: Upload Your Downloaded CV By clicking on top right button </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="~/scripts/jquery-3.3.1.min.js"></script>
+<script src="~/scripts/jspdf.js"></script>
+<script src="~/scripts/html2canvas.min.js"></script>
+@*<script src="~/scripts/toastr.min.js"></script>*@
+@*<script src="~/scripts/pdfFromHTML.js"></script>*@
+
+
+<script>
+
+    $(document).ready(function () {
+        setTimeout(function () {
+            $("#myModal").modal('show');
+        }, 3000);
+        
+    });
+
+    document.getElementById("download").addEventListener("click", function () {
+
+        html2canvas(document.querySelector('#HTMLtoPDF')).then(function (canvas) {
+
+            console.log(canvas);
+            saveAs(canvas.toDataURL(), 'CV.png');
+        });
+    });
+
+
+    function saveAs(uri, filename) {
+
+        var link = document.createElement('a');
+
+        if (typeof link.download === 'string') {
+
+            link.href = uri;
+            link.download = filename;
+
+            //Firefox requires the link to be in the body
+            document.body.appendChild(link);
+
+            //simulate click
+            link.click();
+
+            //remove the link when done
+            document.body.removeChild(link);
+
+        } else {
+
+            window.open(uri);
+
+        }
+    }
+
+
+        $(function () {
+            var a = '@TempData["uploadmessage"]';
+            if (a != '')
+                toastr.success("", a);
+            //alert("ab" + a)
+            window.location = '#2249506';
+        })
+
+    $(function () {
+        var a = '@TempData["generatemessage"]';
+        if (a != '')
+            toastr.success("", a);
+        //alert("ab" + a)
+        window.location = '#2249506';
+    })
+
+    $(function () {
+        var a = '@TempData["successmessage"]';
+        if (a != '')
+            toastr.success("", a);
+        //alert("ab" + a)
+        window.location = '#2249506';
+    })
+
+
+</script>
+
+

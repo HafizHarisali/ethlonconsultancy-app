@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Obbacvs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="body">
+
+    <!-- start: header -->
+    <!-- end: header -->
+    <!-- start: sidebar -->
+    <!-- end: sidebar -->
+
+    <section role="main" class="">
+
+
+        <!-- start: page -->
+
+
+        <section class="panel">
+            <header class="panel-heading">
+                <div class="panel-actions">
+                    <a href="/Admin/#" class="fa fa-caret-down"></a>
+
+                </div>
+
+                <h3 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;color:black;">Organizations BBA/MBA CVs Submitted</h3>
+            </header>
+            <div class="panel-body">
+                <table class="js-dynamitable table table-bordered table-striped mb-none" id="datatable-tabletools">
+
+                    <!-- table heading -->
+                    <thead>
+
+                        <tr>
+                            <th>Serial #</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Age</th>
+                            <th>ReferBy</th>
+                            <th>Qualification</th>
+                            <th>GPA</th>
+                            <th>University</th>
+                            <th>Major Subjects</th>
+                            <th>Other Subjects</th>
+                            <th>Education Board</th>
+                            <th>Experience</th>
+                            <th>Experience Time</th>
+                            <th>Organization Name</th>
+                            <th style="width:400px;">Actions<span style="color:#d41e48;">..........................</span></th>
+                        </tr>
+                        <tr id="sorting">
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:80px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value=""></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th><input class="js-filter  form-control" type="text" value="" style="width:100px;"></th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+
+                    <!-- table body -->
+                    <tbody>
+                        @{
+                            var count = 0;
+
+                            foreach (var item in ViewBag.obbacv)
+                            {
+
+                                if (item.GPA != null && item.University != null && item.MajorSubject != null)
+                                {
+                                    count = count + 1;
+                                    <tr class="">
+                                        <td>@count</td>
+                                        <td>@item.Name</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.City</td>
+                                        <td>@item.DOB</td>
+                                        <td>@item.ReferBy</td>
+                                        <td>@item.GName</td>
+                                        <td>@item.GPA</td>
+                                        <td>@item.University</td>
+                                        <td>@item.MajorSubject</td>
+                                        <td>@item.OtherSubject</td>
+                                        <td>@item.EducationBoard</td>
+                                        <td>@item.ExpStatus</td>
+                                        <td>@item.NOYMExperience</td>
+                                        <td>@item.OrgName</td>
+                                        <td>
+                                            <a href="@Url.Action("EditObbacvs","Home", new { id=item.Id })" class="btn btn-primary">Edit</a> |
+                                            <a href="@Url.Action("DeleteObbacvs","Home", new { id=item.Id })" class="btn btn-danger">Delete</a>
+                                        </td>
+                                        @*<td><a class="btn btn-default" title="Download CV" href="@Url.Action("DownloadFile", "Orginfo", new { item.Id })"><i class="fa fa-download"></i></a></td>*@
+
+                                    </tr>
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </section>
+
+
+        <!-- end: page -->
+    </section>
+
+
+
+</section>
+
+
+<script src="~/scripts/jquery-3.3.1.min.js"></script>
+<!-- dynamitable -->
+<script src="~/scripts/dynamitable.jquery.min.js"></script>
+<script type="text/javascript">
+
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
+
+    (function () {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+
+</script>
